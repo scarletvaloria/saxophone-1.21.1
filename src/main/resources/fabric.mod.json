@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "saxophone",
+	"version": "${version}",
+	"name": "Saxophone",
+	"description": "The consequences of your actions.",
+	"authors": [
+		"ScarletOnTV"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/saxophone/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.scarletontv.saxophone.Saxophone"
+		],
+		"fabric-datagen": [
+			"net.scarletontv.saxophone.SaxophoneDataGenerator"
+		],
+      "client": [
+        "net.scarletontv.saxophone.SaxophoneClient"
+      ]
+	},
+	"mixins": [
+		"saxophone.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
