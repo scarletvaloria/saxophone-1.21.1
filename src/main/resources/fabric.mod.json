@@ -12,7 +12,7 @@
 		"sources": "https://github.com/scarletvaloria/saxophone-1.21.1"
 	},
 	"license": "MIT",
-	"icon": "assets/saxophone/icon.png",
+	"icon": "assets/saxophone/sax_icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

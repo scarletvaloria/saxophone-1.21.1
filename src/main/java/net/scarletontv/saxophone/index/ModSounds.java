@@ -1,7 +1,6 @@
-package net.scarletontv.saxophone.sound;
+package net.scarletontv.saxophone.index;
 
 import net.minecraft.block.jukebox.JukeboxSong;
-import net.minecraft.client.sound.Sound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;

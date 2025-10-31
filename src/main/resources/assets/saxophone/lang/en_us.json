@@ -5,5 +5,8 @@
   "item.saxophone.dark_sanctuary_music_disc.desc": "Toby Fox - Dark Sanctuary",
 
   "death.attack.avarice_damage": "%1$s was liberated",
-  "death.attack.avarice_damage.player": "%1$s was liberated"
+  "death.attack.avarice_damage.player": "%1$s was liberated",
+  "itemgroup.saxophone": "Saxophone",
+  "item.saxophone.deitys_handbell": "Deity's Handbell",
+  "item.saxophone.deitys_handbell.desc": "A calling card for something higher."
 }
