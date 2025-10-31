@@ -1,0 +1,16 @@
+{
+  "scythe_swing": {
+    "subtitle": "sounds.saxophone.scythe_swing",
+    "sounds": [
+      "saxophone:liberation_slice"
+    ]
+  },
+  "dark_sanctuary": {
+    "sounds": [
+      {
+        "name": "saxophone:dark_sanctuary",
+        "stream": "true"
+      }
+    ]
+  }
+}

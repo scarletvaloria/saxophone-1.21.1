@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#P#",
+        "PSP",
+        "#P#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:light_blue_stained_glass_pane"
+        },
+        "P": {
+            "item": "minecraft:polished_deepslate"
+        },
+        "S": {
+            "item": "minecraft:soul_lantern"
+        }
+    },
+    "result": {
+        "id": "saxophone:dark_sanctuary_music_disc",
+        "count": 1
+    }
+}

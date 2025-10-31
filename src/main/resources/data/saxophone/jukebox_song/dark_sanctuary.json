@@ -1,0 +1,8 @@
+{
+  "comparator_output": 15,
+  "description": {
+    "translate": "item.saxophone.dark_sanctuary_music_disc.desc"
+  },
+  "length_in_seconds": 106.0,
+  "sound_event": "saxophone:dark_sanctuary"
+}

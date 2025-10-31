@@ -1,0 +1,9 @@
+{
+  "item.saxophone.liberation": "Liberation",
+  "tooltip.saxophone.liberation.tooltip": "Owned by the Contractor.",
+  "item.saxophone.dark_sanctuary_music_disc": "Music Disc",
+  "item.saxophone.dark_sanctuary_music_disc.desc": "Toby Fox - Dark Sanctuary",
+
+  "death.attack.avarice_damage": "%1$s was liberated",
+  "death.attack.avarice_damage.player": "%1$s was liberated"
+}
