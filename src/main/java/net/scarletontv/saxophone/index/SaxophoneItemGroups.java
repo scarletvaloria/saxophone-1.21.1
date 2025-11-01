@@ -30,6 +30,6 @@ public interface SaxophoneItemGroups {
         itemGroup.add(ModItems.DEITYS_HANDBELL);
         itemGroup.add(ModItems.LIBERATION);
         itemGroup.add(ModItems.CONTRACT);
-        itemGroup.add(ModItems.COVETOUS_MONOLITH);
+        itemGroup.add(ModBlocks.MONOLITH_BLOCK);
     }
 }

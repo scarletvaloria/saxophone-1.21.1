@@ -1,5 +1,7 @@
 package net.scarletontv.saxophone.index;
 
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.entity.EmptyEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -25,7 +27,7 @@ public interface ModEntities {
             EntityType.Builder.create(
                     MonolithEntity::new,
                     SpawnGroup.MISC
-            ).dimensions(0.6f, 1.3f)
+            ).dimensions(0.6f, 1.9f)
     );
 
     static <T extends Entity> EntityType<T> create(String name, EntityType.Builder<T> builder) {
@@ -39,6 +41,6 @@ public interface ModEntities {
 
     static void clientInit() {
 
-       // EntityRendererRegistry.register(PYLON, EmptyEntityRenderer::new);
+        EntityRendererRegistry.register(MONOLITH, EmptyEntityRenderer::new);
     }
 }

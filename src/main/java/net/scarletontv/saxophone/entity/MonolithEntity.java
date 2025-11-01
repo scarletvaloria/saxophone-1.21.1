@@ -4,6 +4,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
 public class MonolithEntity extends Entity {
@@ -28,7 +30,29 @@ public class MonolithEntity extends Entity {
 
     @Override
     public void tick() {
-        // blah blah blah
+        if (getWorld() instanceof ServerWorld serverWorld) {
+            serverWorld.spawnParticles(ParticleTypes.SOUL,
+                    this.getX(),
+                    this.getY(),
+                    this.getZ(),
+                    15,
+                    0.3,
+                    1.9,
+                    0.3,
+                    0.05
+            );
+
+            serverWorld.spawnParticles(ParticleTypes.SCULK_SOUL,
+                    this.getX(),
+                    this.getY(),
+                    this.getZ(),
+                    15,
+                    0.3,
+                    1.9,
+                    0.3,
+                    0.05
+            );
+        }
 
         super.tick();
     }

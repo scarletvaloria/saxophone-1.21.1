@@ -1,14 +1,15 @@
 {
-	"required": true,
-	"package": "net.scarletontv.saxophone.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ItemStackMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+  "required": true,
+  "package": "net.scarletontv.saxophone.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ItemStackMixin",
+    "contract.LivingEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
 	}
 }

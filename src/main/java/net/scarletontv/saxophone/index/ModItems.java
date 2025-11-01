@@ -9,9 +9,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.item.ContractItem;
-import net.scarletontv.saxophone.item.CovetousMonolithItem;
 import net.scarletontv.saxophone.item.DeitysHandbellItem;
 import net.scarletontv.saxophone.item.LiberationItem;
+
+import java.util.function.Function;
 
 import static net.acoyt.acornlib.api.util.ItemUtils.modifyItemNameColor;
 
@@ -21,7 +22,7 @@ public class ModItems {
             new LiberationItem(
                     ToolMaterials.NETHERITE,
                     new Item.Settings()
-                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 6, -3.0f))
+                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -3.0f))
             ));
 
     public static final Item DARK_SANCTUARY_MUSIC_DISC = registerItem("dark_sanctuary_music_disc",
@@ -50,12 +51,6 @@ public class ModItems {
                             .maxCount(1)
             ));
 
-    public static final Item COVETOUS_MONOLITH = registerItem("covetous_monolith",
-            new CovetousMonolithItem(
-                    new AcornItemSettings()
-                            .maxCount(1)
-            ));
-
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Saxophone.MOD_ID, name), item);
     }
@@ -68,5 +63,14 @@ public class ModItems {
         });
 
         Saxophone.LOGGER.info("Registering Mod Items for " + Saxophone.MOD_ID);
+    }
+
+    static Item create(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
+        Item item = factory.apply(settings);
+        if (item instanceof BlockItem blockItem) {
+            blockItem.appendBlocks(Item.BLOCK_ITEMS, item);
+        }
+
+        return Registry.register(Registries.ITEM, Saxophone.id(name), item);
     }
 }
