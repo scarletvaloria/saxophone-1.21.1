@@ -5,10 +5,10 @@
   "name": "Saxophone",
   "description": "The consequences of your actions.",
   "authors": [
-    "ScarletOnTV"
+    "ScarletOnTV",
+    "Chemthunder (A Man with a Plan)"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/scarletvaloria/saxophone-1.21.1"
   },
   "license": "MIT",

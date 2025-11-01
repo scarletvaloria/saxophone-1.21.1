@@ -1,5 +1,6 @@
 package net.scarletontv.saxophone.mixin.contract;
 
+import net.minecraft.client.sound.SoundManager;
 import net.minecraft.entity.Attackable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
