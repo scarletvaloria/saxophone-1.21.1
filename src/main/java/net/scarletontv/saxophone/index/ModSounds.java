@@ -17,6 +17,8 @@ public class ModSounds {
     public static final RegistryKey<JukeboxSong> DARK_SANCTUARY_KEY =
             RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(Saxophone.MOD_ID, "dark_sanctuary"));
 
+    public static final SoundEvent AMBIENCE_ASPHODEL = registerSoundEvent("ambience_asphodel");
+
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(Saxophone.MOD_ID, name);

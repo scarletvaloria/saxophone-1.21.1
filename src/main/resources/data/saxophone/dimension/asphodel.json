@@ -1,0 +1,17 @@
+{
+  "type": "saxophone:aspho_type",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "saxophone:run",
+      "lakes": false,
+      "features": false,
+      "layers": [
+        {
+          "height": 1,
+          "block": "saxophone:clouded_thought"
+        }
+      ]
+    }
+  }
+}

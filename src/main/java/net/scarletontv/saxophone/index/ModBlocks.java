@@ -8,19 +8,21 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.CovetousMonolithBlock;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.function.Function;
 
 public interface ModBlocks {
-
     Block MONOLITH_BLOCK = createWithItem("covetous_monolith", CovetousMonolithBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
             .sounds(BlockSoundGroup.ANCIENT_DEBRIS)
-            .dropsNothing());
+            .dropsNothing()
+    );
+
+    Block CLOUDED_THOUGHT = createWithItem("clouded_thought", Block::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
+            .sounds(BlockSoundGroup.GLASS)
+            .dropsNothing()
+    );
 
     static Block create(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
         Block block = factory.apply(settings);

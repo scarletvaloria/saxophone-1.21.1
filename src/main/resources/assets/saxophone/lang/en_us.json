@@ -8,5 +8,7 @@
   "death.attack.avarice_damage.player": "%1$s was liberated",
   "itemgroup.saxophone": "Saxophone",
   "item.saxophone.deitys_handbell": "Deity's Handbell",
-  "item.saxophone.deitys_handbell.desc": "A calling card for something higher."
+  "item.saxophone.deitys_handbell.desc": "A calling card for something higher.",
+  "block.saxophone.covetous_monolith": "Covetous Monolith",
+  "block.saxophone.clouded_thought": "Clouded Thought"
 }

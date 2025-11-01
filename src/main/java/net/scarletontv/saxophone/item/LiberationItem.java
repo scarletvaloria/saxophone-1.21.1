@@ -36,7 +36,7 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
         tooltip.add(Text.translatable("tooltip.saxophone.liberation.tooltip") .withColor(0x8e1a41));
         super.appendTooltip(stack, context, tooltip, type);
     }
-    //
+
     @Override
     public int getEnchantability() {
         return 0;

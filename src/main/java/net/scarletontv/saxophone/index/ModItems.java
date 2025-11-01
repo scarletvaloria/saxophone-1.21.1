@@ -8,6 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.scarletontv.saxophone.Saxophone;
+import net.scarletontv.saxophone.item.AuthoritysObituaryItem;
 import net.scarletontv.saxophone.item.ContractItem;
 import net.scarletontv.saxophone.item.DeitysHandbellItem;
 import net.scarletontv.saxophone.item.LiberationItem;
@@ -30,6 +31,7 @@ public class ModItems {
                     new Item.Settings()
                             .jukeboxPlayable(ModSounds.DARK_SANCTUARY_KEY)
                             .maxCount(1)
+                            .rarity(Rarity.RARE)
             ));
 
     public static final Item DEITYS_HANDBELL = registerItem("deitys_handbell",
@@ -51,6 +53,12 @@ public class ModItems {
                             .maxCount(1)
             ));
 
+    public static final Item AUTHORITYS_OBITUARY = registerItem("authoritys_obituary",
+            new AuthoritysObituaryItem(
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Saxophone.MOD_ID, name), item);
     }
@@ -59,7 +67,7 @@ public class ModItems {
         modifyItemNameColor(LIBERATION, 0xd70048);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
-            fabricItemGroupEntries.add(DARK_SANCTUARY_MUSIC_DISC);
+        fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);
         });
 
         Saxophone.LOGGER.info("Registering Mod Items for " + Saxophone.MOD_ID);

@@ -12,5 +12,21 @@
         "stream": "true"
       }
     ]
+  },
+  "ambience_asphodel": {
+    "sounds": [
+      {
+        "name": "saxophone:ambient_aspho",
+        "stream": "true"
+      },
+      {
+        "name": "saxophone:ambient_aspho_2",
+        "stream": "true"
+      },
+      {
+        "name": "saxophone:ambient_aspho_3",
+        "stream": "true"
+      }
+    ]
   }
 }

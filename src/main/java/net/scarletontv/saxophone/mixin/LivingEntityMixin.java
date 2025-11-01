@@ -1,6 +1,5 @@
-package net.scarletontv.saxophone.mixin.contract;
+package net.scarletontv.saxophone.mixin;
 
-import net.minecraft.client.sound.SoundManager;
 import net.minecraft.entity.Attackable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -11,6 +10,7 @@ import net.scarletontv.saxophone.index.ModStatusEffects;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
@@ -35,5 +35,10 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
                 cir.setReturnValue(Vec3d.ZERO);
             }
         }
+    }
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void dimension$tick(CallbackInfo ci) {
+
     }
 }
