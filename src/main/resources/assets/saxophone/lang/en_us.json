@@ -10,5 +10,9 @@
   "item.saxophone.deitys_handbell": "Deity's Handbell",
   "item.saxophone.deitys_handbell.desc": "A calling card for something higher.",
   "block.saxophone.covetous_monolith": "Covetous Monolith",
-  "block.saxophone.clouded_thought": "Clouded Thought"
+  "block.saxophone.clouded_thought": "Clouded Thought",
+  "text.aspho.watched": "haiii :3",
+  "tooltip.saxophone.obituary.authority": "An artifact which contains immense mystical power used to deliver the judgement of §kAvarice",
+
+  "item.saxophone.authoritys_obituary": "Authority's Obituary"
 }

@@ -65,12 +65,11 @@ public class ModItems {
 
     public static void registerModItems() {
         modifyItemNameColor(LIBERATION, 0xd70048);
+        modifyItemNameColor(AUTHORITYS_OBITUARY, 0xd70048);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);
         });
-
-        Saxophone.LOGGER.info("Registering Mod Items for " + Saxophone.MOD_ID);
     }
 
     static Item create(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {

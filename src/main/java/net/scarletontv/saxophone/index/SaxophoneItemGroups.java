@@ -31,5 +31,6 @@ public interface SaxophoneItemGroups {
         itemGroup.add(ModItems.LIBERATION);
         itemGroup.add(ModItems.CONTRACT);
         itemGroup.add(ModBlocks.MONOLITH_BLOCK);
+        itemGroup.add(ModItems.AUTHORITYS_OBITUARY);
     }
 }

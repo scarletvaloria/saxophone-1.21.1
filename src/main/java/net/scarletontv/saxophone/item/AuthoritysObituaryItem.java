@@ -5,6 +5,10 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+
+import java.util.List;
 
 public class AuthoritysObituaryItem extends Item implements ColorableItem {
     public AuthoritysObituaryItem(Settings settings) {
@@ -27,5 +31,11 @@ public class AuthoritysObituaryItem extends Item implements ColorableItem {
     @Override
     public int backgroundColor(ItemStack itemStack) {
         return 0xF01c0810;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("tooltip.saxophone.obituary.authority") .withColor(0x8e1a41));
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

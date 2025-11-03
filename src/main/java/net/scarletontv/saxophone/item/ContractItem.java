@@ -1,6 +1,5 @@
 package net.scarletontv.saxophone.item;
 
-import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

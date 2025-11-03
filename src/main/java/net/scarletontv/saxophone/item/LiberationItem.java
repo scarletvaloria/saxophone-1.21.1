@@ -23,7 +23,6 @@ import net.minecraft.world.World;
 import net.scarletontv.saxophone.index.ModDamageTypes;
 import net.scarletontv.saxophone.index.ModSounds;
 
-
 import java.util.List;
 
 public class LiberationItem extends SwordItem implements  ColorableItem, CustomKillSourceItem, CustomHitSoundItem, CustomHitParticleItem, KillEffectItem {
