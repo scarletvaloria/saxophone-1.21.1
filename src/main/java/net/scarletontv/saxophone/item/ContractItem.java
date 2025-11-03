@@ -5,15 +5,11 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModStatusEffects;
-
-import java.util.List;
 
 public class ContractItem extends Item {
     public ContractItem(Settings settings) {
