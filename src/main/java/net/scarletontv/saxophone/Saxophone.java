@@ -2,7 +2,6 @@ package net.scarletontv.saxophone;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
-import net.scarletontv.chem.logger.SaxophoneLoggerInserter;
 import net.scarletontv.saxophone.index.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +16,9 @@ public class Saxophone implements ModInitializer {
 	public void onInitialize() {
         ModItems.registerModItems();
         ModSounds.registerSounds();
-      //  ModEntities.initialize();
+        //  ModEntities.initialize();
         ModStatusEffects.init();
         ModBlocks.init();
-        SaxophoneLoggerInserter.registerTauntsFromChem();
 
         // impl from Phototaxis
         SaxophoneItemGroups.initialize();

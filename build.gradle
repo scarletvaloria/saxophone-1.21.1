@@ -82,7 +82,6 @@ dependencies {
 
     // Nitrogen
     modImplementation("maven.modrinth:nitrogen_rbn:${project.nitrogen_version}")
-	
 }
 
 processResources {

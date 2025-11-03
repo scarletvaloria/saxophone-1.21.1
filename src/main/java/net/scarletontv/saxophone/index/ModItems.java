@@ -58,7 +58,6 @@ public class ModItems {
                     new AcornItemSettings()
                             .maxCount(1)
             ));
-
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Saxophone.MOD_ID, name), item);
     }

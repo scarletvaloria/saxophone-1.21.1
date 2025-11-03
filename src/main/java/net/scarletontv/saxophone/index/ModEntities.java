@@ -1,16 +1,12 @@
 package net.scarletontv.saxophone.index;
 
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.render.entity.EmptyEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.scarletontv.saxophone.Saxophone;
-import net.scarletontv.saxophone.entity.MonolithEntity;
 
 public interface ModEntities {
 
@@ -21,14 +17,14 @@ public interface ModEntities {
 //                    SpawnGroup.MISC
 //            ).dimensions(0.3f, 0.8f)
 //    );
-
-    EntityType<MonolithEntity> MONOLITH = create(
-            "monolith",
-            EntityType.Builder.create(
-                    MonolithEntity::new,
-                    SpawnGroup.MISC
-            ).dimensions(0.6f, 1.9f)
-    );
+//
+//    EntityType<MonolithEntity> MONOLITH = create(
+//            "monolith",
+//            EntityType.Builder.create(
+//                    MonolithEntity::new,
+//                    SpawnGroup.MISC
+//            ).dimensions(0.6f, 0.6f)
+//    );
 
     static <T extends Entity> EntityType<T> create(String name, EntityType.Builder<T> builder) {
         RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, Saxophone.id(name));
@@ -40,7 +36,6 @@ public interface ModEntities {
     }
 
     static void clientInit() {
-
-        EntityRendererRegistry.register(MONOLITH, EmptyEntityRenderer::new);
+      //  EntityRendererRegistry.register(MONOLITH, EmptyEntityRenderer::new);
     }
 }
