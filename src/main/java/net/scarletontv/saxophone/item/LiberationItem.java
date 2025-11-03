@@ -8,6 +8,7 @@ import net.acoyt.acornlib.api.item.KillEffectItem;
 import net.acoyt.acornlib.impl.client.particle.SweepParticleEffect;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -51,11 +52,6 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
         return ModDamageTypes.scythe_kill(livingEntity);
     }
 
-    @Override
-    public void playHitSound(PlayerEntity playerEntity) {
-        playerEntity.playSound(ModSounds.SCYTHE_SWING);
-    }
-
     public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0xd70048, 0x0c0105)};
 
     public void spawnHitParticles(PlayerEntity player) {
@@ -96,6 +92,16 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
     @Override
     public int backgroundColor(ItemStack itemStack) {
         return 0xF01c0810;
+    }
+
+    @Override
+    public void spawnHitParticles(PlayerEntity playerEntity, Entity entity) {
+        spawnHitParticles(playerEntity);
+    }
+
+    @Override
+    public void playHitSound(PlayerEntity playerEntity, Entity entity) {
+        playerEntity.playSound(ModSounds.SCYTHE_SWING);
     }
 }
 
