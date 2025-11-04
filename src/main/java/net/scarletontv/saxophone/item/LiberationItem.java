@@ -10,7 +10,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -40,6 +39,11 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.saxophone.liberation.tooltip") .withColor(0x8e1a41));
         super.appendTooltip(stack, context, tooltip, type);
+    }
+
+    @Override
+    public void playHitSound(PlayerEntity playerEntity) {
+        playerEntity.playSound(ModSounds.SCYTHE_SWING);
     }
 
     @Override
@@ -99,16 +103,6 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
         return 0xF01c0810;
     }
 
-    @Override
-    public void spawnHitParticles(PlayerEntity playerEntity, Entity entity) {
-        spawnHitParticles(playerEntity);
-    }
-
-    @Override
-    public void playHitSound(PlayerEntity playerEntity, Entity entity) {
-        playerEntity.playSound(ModSounds.SCYTHE_SWING);
-    }
-
     public static AttributeModifiersComponent createAttributeModifiers() {
         return AttributeModifiersComponent.builder()
                 .add(
@@ -128,6 +122,8 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
                 )
                 .build();
     }
+
+
 }
 
 

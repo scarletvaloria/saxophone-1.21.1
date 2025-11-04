@@ -7,7 +7,4 @@ public class InsistenceEffect extends StatusEffect {
     public InsistenceEffect(StatusEffectCategory category, int color) {
         super(category, color);
     }
-
-
-
 }

@@ -28,9 +28,11 @@ public class ContractItem extends Item implements ColorableItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if (user.isSneaking()) {
-            stack.decrement(1);
-            user.giveItemStack(ModItems.SIGNED_CONTRACT.getDefaultStack());
-            user.damage(user.getDamageSources().generic(), 3f);
+            if (stack.isOf(ModItems.CONTRACT)) {
+                stack.decrement(1);
+                user.giveItemStack(ModItems.SIGNED_CONTRACT.getDefaultStack());
+                user.damage(user.getDamageSources().generic(), 3f);
+            }
         }
         return super.use(world, user, hand);
     }
@@ -38,7 +40,12 @@ public class ContractItem extends Item implements ColorableItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (stack.isOf(ModItems.SIGNED_CONTRACT)) {
-            target.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 999999999, 0, true, false, false));
+            if (!target.hasStatusEffect(ModStatusEffects.INSISTENCE)) {
+                target.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 999999999, 0, true, false, false));
+            }
+            if (target.hasStatusEffect(ModStatusEffects.INSISTENCE)) {
+                target.removeStatusEffect(ModStatusEffects.INSISTENCE);
+            }
         }
         return super.postHit(stack, target, attacker);
     }
