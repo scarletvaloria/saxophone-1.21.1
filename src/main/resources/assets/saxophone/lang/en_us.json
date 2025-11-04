@@ -13,5 +13,12 @@
   "block.saxophone.clouded_thought": "Clouded Thought",
   "tooltip.saxophone.obituary.authority": "An artifact which contains immense mystical power used to deliver the judgement of §kAvarice",
 
-  "item.saxophone.authoritys_obituary": "Authority's Obituary"
+  "item.saxophone.authoritys_obituary": "Authority's Obituary",
+
+  "item.saxophone.contract_master": "Contract",
+  "item.saxophone.contract_signed_0": "Signed by a bastard.",
+  "item.saxophone.contract_signed_1": "May they serve as an example.",
+  "item.saxophone.contract_unsigned": "Unsigned",
+
+  "item.saxophone.avaritias_mask": "Avaritia's Mask"
 }

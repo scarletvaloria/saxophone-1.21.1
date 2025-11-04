@@ -33,5 +33,6 @@ public interface SaxophoneItemGroups {
         itemGroup.add(ModBlocks.MONOLITH_BLOCK);
         itemGroup.add(ModItems.AUTHORITYS_OBITUARY);
         itemGroup.add(ModBlocks.CLOUDED_THOUGHT);
+        itemGroup.add(ModItems.AVARITIAS_MASK);
     }
 }

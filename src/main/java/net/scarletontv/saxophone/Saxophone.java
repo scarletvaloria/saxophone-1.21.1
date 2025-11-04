@@ -12,6 +12,7 @@ public class Saxophone implements ModInitializer {
 
     public static Identifier id (String path){
         return Identifier.of(MOD_ID, path); }
+
 	@Override
 	public void onInitialize() {
         ModItems.registerModItems();
@@ -19,6 +20,7 @@ public class Saxophone implements ModInitializer {
         //  ModEntities.initialize();
         ModStatusEffects.init();
         ModBlocks.init();
+        ModParticles.registerParticles();
 
         // impl from Phototaxis
         SaxophoneItemGroups.initialize();

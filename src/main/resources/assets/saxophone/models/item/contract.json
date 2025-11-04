@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "saxophone:item/virtus_dei"
+    "layer0": "saxophone:item/contract"
   }
 }

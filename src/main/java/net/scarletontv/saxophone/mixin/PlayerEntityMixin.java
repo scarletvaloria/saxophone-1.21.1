@@ -16,9 +16,11 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModItems;
+import net.scarletontv.saxophone.index.ModParticles;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -26,6 +28,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.List;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements ScreenShaker {
@@ -55,9 +59,9 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
             if (world instanceof ServerWorld serverWorld) {
                 if (other instanceof PlayerEntity player) {
                     serverWorld.spawnParticles(ParticleTypes.SQUID_INK, other.getX(), other.getY(), other.getZ(), 35, 5, 0, 5, 0.05f);
-                    serverWorld.spawnParticles(ParticleTypes.END_ROD, other.getX(), other.getY(), other.getZ(), 50, 0.05, 0.05, 0.05, 0.4);
-                    serverWorld.spawnParticles(ParticleTypes.END_ROD, other.getX(), other.getY(), other.getZ(), 50, 0.05, 0.05, 0.05, 0.09);
-                    serverWorld.spawnParticles(ParticleTypes.END_ROD, other.getX(), other.getY(), other.getZ(), 75, 0.05, 0.05, 0.05, 0.8);
+                    serverWorld.spawnParticles(ModParticles.FOLLY, other.getX(), other.getY(), other.getZ(), 50, 0.05, 0.05, 0.05, 0.4);
+                    serverWorld.spawnParticles(ModParticles.FOLLY, other.getX(), other.getY(), other.getZ(), 50, 0.05, 0.05, 0.05, 0.09);
+                    serverWorld.spawnParticles(ModParticles.FOLLY, other.getX(), other.getY(), other.getZ(), 75, 0.05, 0.05, 0.05, 0.8);
                     serverWorld.spawnParticles(ParticleTypes.RAID_OMEN, other.getX(), other.getY() + 0.5, other.getZ(), 50, 0.05, 0.05, 0.05, 0.5);
                     world.createExplosion(other, other.getX(), other.getY(), other.getZ(), 0, World.ExplosionSourceType.NONE);
 
@@ -69,17 +73,25 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
                     this.playSoundToPlayer(SoundEvents.BLOCK_BEACON_ACTIVATE, SoundCategory.MASTER, 5, -5);
                     this.playSoundToPlayer(SoundEvents.BLOCK_END_GATEWAY_SPAWN, SoundCategory.MASTER, 3, -5);
 
-                    other.setVelocity(0, 5, 0);
+                    Box area = new Box(other.getBlockPos()).expand(5, 5, 5);
+                    List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, area, entity -> true);
+
+                    for (LivingEntity entity : entities) {
+                        entity.setVelocity(area.getCenter().multiply(2));
+                    }
+
                     if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                         teleportToPurgatory(serverPlayerEntity);
                         serverPlayerEntity.setHealth(serverPlayerEntity.getMaxHealth());
                         ((ServerPlayerEntity) other).requestRespawn();
                     }
+
+                    if (!this.isInCreativeMode()) {
+                        this.getOffHandStack().decrement(1);
+                    }
                 }
             }
-            if (!this.isInCreativeMode()) {
-                this.getOffHandStack().decrement(1);
-            }
+
         }
     }
 
