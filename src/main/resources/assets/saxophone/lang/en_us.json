@@ -1,24 +1,24 @@
 {
-  "item.saxophone.liberation": "Liberation",
-  "tooltip.saxophone.liberation.tooltip": "Owned by the Contractor.",
-  "item.saxophone.dark_sanctuary_music_disc": "Music Disc",
-  "item.saxophone.dark_sanctuary_music_disc.desc": "Toby Fox - Dark Sanctuary",
-
+  "block.saxophone.clouded_thought": "Clouded Thought",
+  "block.saxophone.covetous_monolith": "Covetous Monolith",
   "death.attack.avarice_damage": "%1$s was liberated",
   "death.attack.avarice_damage.player": "%1$s was liberated",
-  "itemgroup.saxophone": "Saxophone",
-  "item.saxophone.deitys_handbell": "Deity's Handbell",
-  "item.saxophone.deitys_handbell.desc": "A calling card for something higher.",
-  "block.saxophone.covetous_monolith": "Covetous Monolith",
-  "block.saxophone.clouded_thought": "Clouded Thought",
-  "tooltip.saxophone.obituary.authority": "An artifact which contains immense mystical power used to deliver the judgement of §kAvarice",
-
   "item.saxophone.authoritys_obituary": "Authority's Obituary",
-
+  "item.saxophone.avaritias_mask": "Avaritia's Mask",
+  "item.saxophone.avaritias_mask.desc": "A sickly, disgusting mask worn by a mockery of god.",
   "item.saxophone.contract_master": "Contract",
   "item.saxophone.contract_signed_0": "Signed by a bastard.",
   "item.saxophone.contract_signed_1": "May they serve as an example.",
   "item.saxophone.contract_unsigned": "Unsigned",
-
-  "item.saxophone.avaritias_mask": "Avaritia's Mask"
+  "item.saxophone.dark_sanctuary_music_disc": "Music Disc",
+  "item.saxophone.dark_sanctuary_music_disc.desc": "Toby Fox - Dark Sanctuary",
+  "item.saxophone.deific_warrant": "Deific Warrant",
+  "item.saxophone.deific_warrant.desc": "A formal granting of protection by §kAvarice",
+  "item.saxophone.deitys_handbell": "Deity's Handbell",
+  "item.saxophone.deitys_handbell.desc": "A calling card for something higher.",
+  "item.saxophone.liberation": "Liberation",
+  "itemgroup.saxophone": "Saxophone",
+  "playername.saxo": "God's Punishment",
+  "tooltip.saxophone.liberation.tooltip": "Owned by the Contractor.",
+  "tooltip.saxophone.obituary.authority": "An artifact which contains immense mystical power used to deliver the judgement of §kAvarice"
 }

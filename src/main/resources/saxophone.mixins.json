@@ -5,7 +5,9 @@
   "mixins": [
     "ItemStackMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "PlayerManagerMixin",
+    "ServerPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -14,6 +16,8 @@
     "requireAnnotations": true
   },
   "client": [
-    "client.AbstractSoundInstanceMixin"
+    "client.AbstractSoundInstanceMixin",
+    "client.ArmorFeatureRendererMixin",
+    "client.PlayerListHudMixin"
   ]
 }

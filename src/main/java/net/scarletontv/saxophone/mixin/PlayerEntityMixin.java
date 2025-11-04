@@ -1,7 +1,9 @@
 package net.scarletontv.saxophone.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.nitron.nitrogen.util.interfaces.ScreenShaker;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,6 +16,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -58,14 +62,12 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
         if (this.getOffHandStack().isOf(ModItems.AUTHORITYS_OBITUARY)) {
             if (world instanceof ServerWorld serverWorld) {
                 if (other instanceof PlayerEntity player) {
+                    addScreenShake(5, 1);
                     serverWorld.spawnParticles(ParticleTypes.SQUID_INK, other.getX(), other.getY(), other.getZ(), 35, 5, 0, 5, 0.05f);
-                    serverWorld.spawnParticles(ModParticles.FOLLY, other.getX(), other.getY(), other.getZ(), 50, 0.05, 0.05, 0.05, 0.4);
+                    serverWorld.spawnParticles(ModParticles.FOLLY, other.getX(), other.getY(), other.getZ(), 150, 0.05, 0.05, 0.05, 0.4);
                     serverWorld.spawnParticles(ModParticles.FOLLY, other.getX(), other.getY(), other.getZ(), 50, 0.05, 0.05, 0.05, 0.09);
                     serverWorld.spawnParticles(ModParticles.FOLLY, other.getX(), other.getY(), other.getZ(), 75, 0.05, 0.05, 0.05, 0.8);
                     serverWorld.spawnParticles(ParticleTypes.RAID_OMEN, other.getX(), other.getY() + 0.5, other.getZ(), 50, 0.05, 0.05, 0.05, 0.5);
-                    world.createExplosion(other, other.getX(), other.getY(), other.getZ(), 0, World.ExplosionSourceType.NONE);
-
-                    addScreenShake(5, 1);
 
                     this.playSoundToPlayer(SoundEvents.ITEM_TRIDENT_HIT_GROUND, SoundCategory.MASTER, 3, -5);
                     this.playSoundToPlayer(SoundEvents.BLOCK_CONDUIT_AMBIENT_SHORT, SoundCategory.MASTER, 3, -5);
@@ -133,5 +135,23 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
         } else {
             Saxophone.LOGGER.error("Could not find asphodel dimension!");
         }
+    }
+
+    @Inject(method = "shouldRenderName", at = @At("HEAD"), cancellable = true)
+    private void avarita$disableNameRendering(CallbackInfoReturnable<Boolean> cir) {
+        if (((Object) this instanceof PlayerEntity player)) {
+            if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(ModItems.AVARITIAS_MASK)) {
+                cir.setReturnValue(false);
+            }
+        }
+    }
+
+    @ModifyReturnValue(method = "getDisplayName", at = @At("RETURN"))
+    private Text herald$maskName(Text original) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(ModItems.AVARITIAS_MASK)) {
+            return Text.translatable("playername.saxo").withColor(0xff003c).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED);
+        }
+        return original;
     }
 }

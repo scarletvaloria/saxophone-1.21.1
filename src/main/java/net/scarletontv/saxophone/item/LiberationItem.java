@@ -8,8 +8,12 @@ import net.acoyt.acornlib.api.item.KillEffectItem;
 import net.acoyt.acornlib.impl.client.particle.SweepParticleEffect;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -19,6 +23,7 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.index.ModDamageTypes;
@@ -102,6 +107,26 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
     @Override
     public void playHitSound(PlayerEntity playerEntity, Entity entity) {
         playerEntity.playSound(ModSounds.SCYTHE_SWING);
+    }
+
+    public static AttributeModifiersComponent createAttributeModifiers() {
+        return AttributeModifiersComponent.builder()
+                .add(
+                        EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        new EntityAttributeModifier(BASE_ATTACK_DAMAGE_MODIFIER_ID, 9.0f, EntityAttributeModifier.Operation.ADD_VALUE),
+                        AttributeModifierSlot.MAINHAND
+                )
+                .add(
+                        EntityAttributes.GENERIC_ATTACK_SPEED,
+                        new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, -3.0f, EntityAttributeModifier.Operation.ADD_VALUE),
+                        AttributeModifierSlot.MAINHAND
+                )
+                .add(
+                        EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
+                        new EntityAttributeModifier(Identifier.ofVanilla("base_entity_interaction_range"), 0.5f, EntityAttributeModifier.Operation.ADD_VALUE),
+                        AttributeModifierSlot.MAINHAND
+                )
+                .build();
     }
 }
 

@@ -21,7 +21,7 @@ public class ModItems {
             new LiberationItem(
                     ToolMaterials.NETHERITE,
                     new Item.Settings()
-                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -3.0f))
+                            .attributeModifiers(LiberationItem.createAttributeModifiers())
             ));
 
     public static final Item DARK_SANCTUARY_MUSIC_DISC = registerItem("dark_sanctuary_music_disc",
@@ -62,6 +62,13 @@ public class ModItems {
                     new AcornItemSettings()
                             .maxCount(1)
                             .equipmentSlot((livingEntity, itemStack) -> EquipmentSlot.HEAD)
+                            .attributeModifiers(MaskItem.createAttributeModifiers())
+            ));
+
+    public static final Item DEIFIC_WARRANT = registerItem("deific_warrant",
+            new DeificWarrantItem(
+                    new AcornItemSettings()
+                            .maxCount(1)
             ));
 
     private static Item registerItem(String name, Item item) {
@@ -72,6 +79,7 @@ public class ModItems {
         modifyItemNameColor(LIBERATION, 0xd70048);
         modifyItemNameColor(AUTHORITYS_OBITUARY, 0xd70048);
         modifyItemNameColor(DEITYS_HANDBELL, 0xd70048);
+        modifyItemNameColor(DEIFIC_WARRANT, 0xd70048);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);
