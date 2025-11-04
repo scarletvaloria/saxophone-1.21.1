@@ -16,6 +16,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.index.ModParticles;
+import net.scarletontv.saxophone.index.ModSounds;
 import net.scarletontv.saxophone.index.ModStatusEffects;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class DeitysHandbellItem extends Item implements ColorableItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        user.playSound(ModSounds.BELL_TOLL, 1, 1);
         if (world instanceof ServerWorld serverWorld) {
             Box box = new Box(user.getBlockPos()).expand(5, 5, 5);
             List<LivingEntity> entities = world.getEntitiesByClass(
@@ -40,6 +42,8 @@ public class DeitysHandbellItem extends Item implements ColorableItem {
                 }
             }
             serverWorld.spawnParticles(ModParticles.FOLLY, user.getX(), user.getY() + 0.5, user.getZ(), 15, 0, 0, 0, 0.05);
+
+            user.getItemCooldownManager().set(this, 60);
         }
         return super.use(world, user, hand);
     }

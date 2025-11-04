@@ -80,6 +80,10 @@ public class ModItems {
         modifyItemNameColor(AUTHORITYS_OBITUARY, 0xd70048);
         modifyItemNameColor(DEITYS_HANDBELL, 0xd70048);
         modifyItemNameColor(DEIFIC_WARRANT, 0xd70048);
+        modifyItemNameColor(CONTRACT, 0x8a724c);
+        modifyItemNameColor(SIGNED_CONTRACT, 0x611133);
+        modifyItemNameColor(Item.fromBlock(ModBlocks.CLOUDED_THOUGHT), 0x38352f);
+        modifyItemNameColor(AVARITIAS_MASK, 0xab5c7e);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);

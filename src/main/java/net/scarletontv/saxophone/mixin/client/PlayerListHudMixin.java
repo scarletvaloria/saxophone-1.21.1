@@ -13,7 +13,6 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 // Mixin by Gabe-Real
-
 @Mixin(PlayerListHud.class)
 public class PlayerListHudMixin {
 

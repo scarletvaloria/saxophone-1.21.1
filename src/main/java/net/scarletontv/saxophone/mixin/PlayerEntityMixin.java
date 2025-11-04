@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModParticles;
+import net.scarletontv.saxophone.index.ModSounds;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -74,6 +75,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
                     this.playSoundToPlayer(SoundEvents.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 3, -5);
                     this.playSoundToPlayer(SoundEvents.BLOCK_BEACON_ACTIVATE, SoundCategory.MASTER, 5, -5);
                     this.playSoundToPlayer(SoundEvents.BLOCK_END_GATEWAY_SPAWN, SoundCategory.MASTER, 3, -5);
+                    this.playSoundToPlayer(ModSounds.EXECUTION, SoundCategory.MASTER, 1, 1);
 
                     Box area = new Box(other.getBlockPos()).expand(5, 5, 5);
                     List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, area, entity -> true);

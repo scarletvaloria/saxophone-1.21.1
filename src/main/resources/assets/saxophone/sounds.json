@@ -13,6 +13,22 @@
       }
     ]
   },
+  "bell_toll": {
+    "sounds": [
+      {
+        "name": "saxophone:bell_toll",
+        "stream": "true"
+      }
+    ]
+  },
+  "execution": {
+    "sounds": [
+      {
+        "name": "saxophone:execution",
+        "stream": "true"
+      }
+    ]
+  },
   "ambience_asphodel": {
     "sounds": [
       {

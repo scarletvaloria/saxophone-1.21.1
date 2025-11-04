@@ -20,6 +20,9 @@ public class ModSounds {
     public static final SoundEvent AMBIENCE_ASPHODEL = registerSoundEvent("ambience_asphodel");
 
 
+    public static final SoundEvent EXECUTION = registerSoundEvent("execution");
+    public static final SoundEvent BELL_TOLL = registerSoundEvent("bell_toll");
+
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(Saxophone.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
