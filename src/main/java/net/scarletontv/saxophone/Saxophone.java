@@ -28,7 +28,7 @@ public class Saxophone implements ModInitializer {
         ModParticles.registerParticles();
 
         // impl from Phototaxis
-        SaxophoneItemGroups.initialize();
+     //   SaxophoneItemGroups.initialize();
 
         avarice.add(UUID.fromString("c38f83cf-2723-497a-9327-f5937fb2fc08"));
     }
