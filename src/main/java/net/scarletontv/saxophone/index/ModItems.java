@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 import static net.acoyt.acornlib.api.util.ItemUtils.modifyItemNameColor;
 
-
+@SuppressWarnings("deprecation")
 public class ModItems {
     public static final Item LIBERATION = registerItem("liberation",
             new LiberationItem(
@@ -71,6 +71,12 @@ public class ModItems {
                             .maxCount(1)
             ));
 
+    public static final Item FORSAKEN_CHARTER = registerItem("forsaken_charter",
+            new ForsakenCharterItem(
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Saxophone.MOD_ID, name), item);
     }
@@ -80,6 +86,7 @@ public class ModItems {
         modifyItemNameColor(AUTHORITYS_OBITUARY, 0xd70048);
         modifyItemNameColor(DEITYS_HANDBELL, 0xd70048);
         modifyItemNameColor(DEIFIC_WARRANT, 0xd70048);
+        modifyItemNameColor(FORSAKEN_CHARTER, 0xd70048);
         modifyItemNameColor(CONTRACT, 0x8a724c);
         modifyItemNameColor(SIGNED_CONTRACT, 0x611133);
         modifyItemNameColor(Item.fromBlock(ModBlocks.CLOUDED_THOUGHT), 0x38352f);
