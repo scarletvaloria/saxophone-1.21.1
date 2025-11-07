@@ -9,18 +9,29 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.scarletontv.saxophone.Saxophone;
+import net.scarletontv.saxophone.block.CovetousMonolithBlock;
+import net.scarletontv.saxophone.block.HarmfulThoughtBlock;
 
 import java.util.function.Function;
 
 public interface ModBlocks {
-//    Block MONOLITH_BLOCK = createWithItem("covetous_monolith", CovetousMonolithBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
-//            .sounds(BlockSoundGroup.ANCIENT_DEBRIS)
-//            .dropsNothing()
-//    );
+    Block MONOLITH_BLOCK = createWithItem("covetous_monolith", CovetousMonolithBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+            .sounds(BlockSoundGroup.ANCIENT_DEBRIS)
+            .dropsNothing()
+    );
 
     Block CLOUDED_THOUGHT = createWithItem("clouded_thought", Block::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
             .sounds(BlockSoundGroup.GLASS)
             .dropsNothing()
+            .emissiveLighting((state, world, pos) -> true)
+            .noBlockBreakParticles()
+    );
+
+    Block HARMFUL_THOUGHT = createWithItem("harmful_thought", HarmfulThoughtBlock::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
+            .sounds(BlockSoundGroup.GLASS)
+            .dropsNothing()
+            .emissiveLighting((state, world, pos) -> true)
+            .noBlockBreakParticles()
     );
 
     static Block create(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
@@ -34,6 +45,6 @@ public interface ModBlocks {
         return block;
     }
 
-    static void init() {
+    static void registerBlocks() {
     }
 }

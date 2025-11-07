@@ -15,6 +15,6 @@ public interface ModStatusEffects {
         return Registry.registerReference(Registries.STATUS_EFFECT, Saxophone.id(name), statusEffect);
     }
 
-    static void init() {
+    static void registerStatusEffects() {
     }
 }

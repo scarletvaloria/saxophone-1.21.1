@@ -44,5 +44,21 @@
         "stream": "true"
       }
     ]
+  },
+  "shotgun_shot": {
+    "sounds": [
+      {
+        "name": "saxophone:shotgun_shot",
+        "stream": "true"
+      }
+    ]
+  },
+  "shotgun_reload": {
+    "sounds": [
+      {
+        "name": "saxophone:shotgun_reload",
+        "stream": "true"
+      }
+    ]
   }
 }

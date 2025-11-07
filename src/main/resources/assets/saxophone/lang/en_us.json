@@ -1,6 +1,8 @@
 {
+  "attempt.pickup.charter.fail": "You are not worthy of such things.",
   "block.saxophone.clouded_thought": "Clouded Thought",
   "block.saxophone.covetous_monolith": "Covetous Monolith",
+  "block.saxophone.harmful_thought": "Harmful Thought",
   "death.attack.avarice_damage": "%1$s was liberated",
   "death.attack.avarice_damage.player": "%1$s was liberated",
   "effect.saxophone.insistence": "Insistence",
@@ -19,7 +21,10 @@
   "item.saxophone.deitys_handbell": "Deity's Handbell",
   "item.saxophone.deitys_handbell.desc": "A calling card for something higher.",
   "item.saxophone.liberation": "Liberation",
-  "playername.saxo": "God's Punishment",
+  "itemgroup.saxophone": "Saxophone Debug Item Group",
+  "playername.saxo": "Avarice",
   "tooltip.saxophone.liberation.tooltip": "Owned by the Contractor.",
-  "tooltip.saxophone.obituary.authority": "An artifact which contains immense mystical power used to deliver the judgement of §kAvarice"
+  "tooltip.saxophone.obituary.authority_1": "An artifact which contains immense mystical power",
+  "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice",
+  "item.saxophone.martyrdom": "Martyrdom"
 }

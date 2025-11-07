@@ -35,7 +35,8 @@ public class AuthoritysObituaryItem extends Item implements ColorableItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.saxophone.obituary.authority") .withColor(0x8e1a41));
+        tooltip.add(Text.translatable("tooltip.saxophone.obituary.authority_1") .withColor(0x8e1a41));
+        tooltip.add(Text.translatable("tooltip.saxophone.obituary.authority_2") .withColor(0x8e1a41));
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

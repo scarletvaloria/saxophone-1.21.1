@@ -50,7 +50,7 @@ public abstract class PlayerManagerMixin {
 
             if ("multiplayer.player.left".equals(key) &&
                     maybeText.isPresent() &&
-                    ((Text) maybeText.get()).getString().contains("Mouthpiece")) {
+                    ((Text) maybeText.get()).getString().contains("Avarice")) {
                 ci.cancel();
             }
         }

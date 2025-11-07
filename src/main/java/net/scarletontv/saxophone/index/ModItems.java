@@ -77,6 +77,30 @@ public class ModItems {
                             .maxCount(1)
             ));
 
+    public static final Item MARTYRDOM = registerItem("martyrdom",
+            new MartyrdomItem(
+                    ToolMaterials.NETHERITE,
+                    new AcornItemSettings()
+                            .maxCount(1)
+                            .attributeModifiers(AxeItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.5f))
+            ));
+
+    public static final Item WRATH_OF_TWILIGHT = registerItem("wrath_of_twilight",
+            new WrathOfTwilightItem(
+                    ToolMaterials.NETHERITE,
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
+    public static final Item TWELVE_GAUGE = registerItem("bulwark",
+            new KrimsonsSillyShotgunItem(
+                    ToolMaterials.NETHERITE,
+                    new AcornItemSettings()
+                            .followsCam()
+                            .maxCount(1)
+                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -1f))
+            ));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Saxophone.MOD_ID, name), item);
     }
@@ -90,6 +114,7 @@ public class ModItems {
         modifyItemNameColor(CONTRACT, 0x8a724c);
         modifyItemNameColor(SIGNED_CONTRACT, 0x611133);
         modifyItemNameColor(Item.fromBlock(ModBlocks.CLOUDED_THOUGHT), 0x38352f);
+        modifyItemNameColor(Item.fromBlock(ModBlocks.HARMFUL_THOUGHT), 0x38352f);
         modifyItemNameColor(AVARITIAS_MASK, 0xab5c7e);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {

@@ -79,8 +79,4 @@ public class ContractItem extends Item implements ColorableItem {
         }
         super.appendTooltip(stack, context, tooltip, type);
     }
-
-    public Text getName(ItemStack stack) {
-        return Text.translatable("item.saxophone.contract_master");
-    }
 }

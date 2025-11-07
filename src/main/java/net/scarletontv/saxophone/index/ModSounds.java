@@ -23,12 +23,14 @@ public class ModSounds {
     public static final SoundEvent EXECUTION = registerSoundEvent("execution");
     public static final SoundEvent BELL_TOLL = registerSoundEvent("bell_toll");
 
+    public static final SoundEvent SHOTGUN_SHOT = registerSoundEvent("shotgun_shot");
+    public static final SoundEvent SHOTGUN_RELOAD = registerSoundEvent("shotgun_reload");
+
+
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(Saxophone.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 
-    public static void registerSounds() {
-        Saxophone.LOGGER.info("Registering Mod Sounds for " + Saxophone.MOD_ID);
-    }
+    public static void registerSounds() {}
 }

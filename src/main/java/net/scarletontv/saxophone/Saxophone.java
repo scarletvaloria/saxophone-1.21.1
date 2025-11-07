@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Saxophone implements ModInitializer {
-	public static final String MOD_ID = "saxophone";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String MOD_ID = "saxophone";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static Identifier id (String path){
         return Identifier.of(MOD_ID, path); }
 
     public static final ArrayList<UUID> avarice = new ArrayList<>();
 
-	@Override
-	public void onInitialize() {
+    @Override
+    public void onInitialize() {
         ModItems.registerModItems();
         ModSounds.registerSounds();
-        //  ModEntities.initialize();
-        ModStatusEffects.init();
-        ModBlocks.init();
+        ModEntities.registerEntities();
+        ModStatusEffects.registerStatusEffects();
+        ModBlocks.registerBlocks();
         ModParticles.registerParticles();
 
         // impl from Phototaxis

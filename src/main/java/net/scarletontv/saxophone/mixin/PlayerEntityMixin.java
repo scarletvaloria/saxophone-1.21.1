@@ -103,12 +103,13 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
     private void yes(CallbackInfo ci) {
         RegistryKey<World> heavenWorldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(Saxophone.MOD_ID, "asphodel"));
         if (this.getWorld().getRegistryKey() == heavenWorldKey) {
-            if (this.isDead()) {
+            if (!this.isDead()) {
+                this.getHungerManager().setFoodLevel(20);
+                this.getHungerManager().setSaturationLevel(20);
+                this.setHealth(20);
+            } else {
                 this.requestRespawn();
             }
-            this.getHungerManager().setFoodLevel(20);
-            this.getHungerManager().setSaturationLevel(20);
-            this.setHealth(20);
         }
     }
 
@@ -151,7 +152,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
     @ModifyReturnValue(method = "getDisplayName", at = @At("RETURN"))
     private Text herald$maskName(Text original) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(ModItems.AVARITIAS_MASK)) {
+        if (Saxophone.avarice.contains(player.getUuid())) {
             return Text.translatable("playername.saxo").withColor(0xff003c).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED);
         }
         return original;
