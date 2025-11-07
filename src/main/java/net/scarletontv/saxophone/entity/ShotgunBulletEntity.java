@@ -1,19 +1,16 @@
 package net.scarletontv.saxophone.entity;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.index.ModDamageTypes;
 import net.scarletontv.saxophone.index.ModItems;
-
-import static java.lang.Math.random;
 
 public class ShotgunBulletEntity extends ThrownItemEntity {
     public ShotgunBulletEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
@@ -69,5 +66,19 @@ public class ShotgunBulletEntity extends ThrownItemEntity {
     @Override
     public boolean hasNoGravity() {
         return false;
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        nbt.putInt("timesBounced", this.timesBounced);
+        nbt.putInt("lifespan", this.lifespan);
+        super.writeCustomDataToNbt(nbt);
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        this.timesBounced = nbt.getInt("timesBounced");
+        this.lifespan = nbt.getInt("lifespan");
+        super.readCustomDataFromNbt(nbt);
     }
 }
