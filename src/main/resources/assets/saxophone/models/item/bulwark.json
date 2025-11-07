@@ -1,0 +1,12 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "saxophone:item/gun_gui"
+  },
+  "overrides": [
+    {
+      "predicate": { "is_held": 1.0 },
+      "model": "saxophone:item/bulwark_handheld"
+    }
+  ]
+}

@@ -40,7 +40,7 @@ public class ShotgunBulletEntity extends ThrownItemEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
 
-        entity.damage(ModDamageTypes.bullet(entity), 3.5f);
+        entity.damage(ModDamageTypes.bullet(entity), 5.5f);
         this.discard();
         super.onEntityHit(entityHitResult);
     }
@@ -53,15 +53,15 @@ public class ShotgunBulletEntity extends ThrownItemEntity {
 //}
 
 
-    @Override
-    protected void onBlockCollision(BlockState state) {
-        if (!state.isIn(BlockTags.AIR)) {
-            this.setVelocity(this.getVelocity().multiply(-0.5));
-            this.addVelocity(0, timesBounced -6, 0);
-            timesBounced++;
-        }
-        super.onBlockCollision(state);
-    }
+//    @Override
+//    protected void onBlockCollision(BlockState state) {
+//        if (!state.isIn(BlockTags.AIR)) {
+//            this.setVelocity(this.getVelocity().multiply(-0.5));
+//          //  this.addVelocity(0, 0.05 - (double) timesBounced / 2, 0);
+//            timesBounced++;
+//        }
+//        super.onBlockCollision(state);
+//    }
 
     @Override
     public boolean hasNoGravity() {

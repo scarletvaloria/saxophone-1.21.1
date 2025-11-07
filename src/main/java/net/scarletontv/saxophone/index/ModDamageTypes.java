@@ -19,6 +19,11 @@ public interface ModDamageTypes {
     static DamageSource bullet(Entity entity) {
         return entity.getDamageSources().create(BULLET); }
 
+    RegistryKey<DamageType> SAXITOXIN = of("saxitoxin");
+
+    static DamageSource saxitoxin(Entity entity) {
+        return entity.getDamageSources().create(SAXITOXIN); }
+
     private static RegistryKey<DamageType> of(String name) {
         return RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Saxophone.id(name));
     }

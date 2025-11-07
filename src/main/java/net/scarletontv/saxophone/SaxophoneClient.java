@@ -32,7 +32,7 @@ public class SaxophoneClient implements ClientModInitializer {
             assert client.world != null;
             for (ShotgunBulletEntity entity : client.world.getEntitiesByClass(ShotgunBulletEntity.class, box, allayEntity -> true)) {
                 Deque<Vec3d> trail = TRAILS.computeIfAbsent(entity.getUuid(), id -> new ArrayDeque<>());
-                Vector3f color = new Vector3f((float) 205 / 255, (float) 9 / 255, (float) 22 / 255);
+                Vector3f color = new Vector3f((float) 150 / 255, (float) 200 / 255, (float) 22 / 255);
 
                 if (entity.isRegionUnloaded()) {
                     TRAILS.remove(entity.getUuid());

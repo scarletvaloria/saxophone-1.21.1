@@ -1,0 +1,30 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "saxophone:item/gun_handheld"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 55],
+			"translation": [0, 4.5, 0.5],
+			"scale": [1.58, 1.58, 1.36]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -55],
+			"translation": [0, 4.5, 0.5],
+			"scale": [1.58, 1.58, 1.36]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 4.7, 1.63],
+			"scale": [1.67, 1.67, 1.38]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 4.7, 1.63],
+			"scale": [1.67, 1.67, 1.38]
+		}
+	}
+}

@@ -21,6 +21,7 @@ import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModParticles;
 import net.scarletontv.saxophone.index.ModSounds;
+import net.scarletontv.saxophone.index.ModStatusEffects;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -63,6 +64,8 @@ public class CovetousMonolithBlock extends Block  {
             for (LivingEntity entity : entities) {
                 if (entity instanceof PlayerEntity player) {
                     if (!player.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack()) || !Saxophone.avarice.contains(player.getUuid())) {
+                        player.setVelocity(0, 5, 0);
+                        player.velocityModified = true;
                         world.spawnParticles(ParticleTypes.END_ROD, player.getX(), player.getY(), player.getZ(), 50, 0, 0, 0, 0.05);
                     }
                 }
@@ -70,8 +73,6 @@ public class CovetousMonolithBlock extends Block  {
 
             timer = 5;
         } else {
-            timer--;
-
             Box box = new Box(pos).expand(50, 50, 50);
             List<LivingEntity> entities = world.getEntitiesByClass(
                     LivingEntity.class, box,
@@ -80,12 +81,13 @@ public class CovetousMonolithBlock extends Block  {
 
             for (LivingEntity entity : entities) {
                 if (entity instanceof PlayerEntity player) {
-                    player.playSound(ModSounds.BELL_TOLL, 5, 1);
+                    player.playSoundToPlayer(ModSounds.BELL_TOLL, SoundCategory.BLOCKS, 1, 1);
                 }
             }
+            timer--;
             world.spawnParticles(ModParticles.FOLLY,
                     pos.getX() + 0.5,
-                    pos.getY(),
+                    pos.getY() + 2,
                     pos.getZ() + 0.5,
                     timer,
                     0,

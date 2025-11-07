@@ -93,12 +93,11 @@ public class ModItems {
             ));
 
     public static final Item TWELVE_GAUGE = registerItem("bulwark",
-            new KrimsonsSillyShotgunItem(
-                    ToolMaterials.NETHERITE,
+            new BulwarkItem(
                     new AcornItemSettings()
                             .followsCam()
                             .maxCount(1)
-                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -1f))
+                            .attributeModifiers(BulwarkItem.createAttributeModifiers())
             ));
 
     private static Item registerItem(String name, Item item) {
@@ -116,7 +115,7 @@ public class ModItems {
         modifyItemNameColor(Item.fromBlock(ModBlocks.CLOUDED_THOUGHT), 0x38352f);
         modifyItemNameColor(Item.fromBlock(ModBlocks.HARMFUL_THOUGHT), 0x38352f);
         modifyItemNameColor(AVARITIAS_MASK, 0xab5c7e);
-        modifyItemNameColor(TWELVE_GAUGE, 0x4B2E67);
+        modifyItemNameColor(TWELVE_GAUGE, 0xb0dd90);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);

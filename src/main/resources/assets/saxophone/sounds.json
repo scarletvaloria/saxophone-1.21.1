@@ -48,16 +48,14 @@
   "shotgun_shot": {
     "sounds": [
       {
-        "name": "saxophone:shotgun_shot",
-        "stream": "true"
+        "name": "saxophone:shotgun_shot"
       }
     ]
   },
   "shotgun_reload": {
     "sounds": [
       {
-        "name": "saxophone:shotgun_reload",
-        "stream": "true"
+        "name": "saxophone:shotgun_reload"
       }
     ]
   }
