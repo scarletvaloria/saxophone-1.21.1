@@ -1,6 +1,7 @@
 package net.scarletontv.saxophone;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit;
 import net.minecraft.util.Identifier;
 import net.scarletontv.saxophone.index.*;
 import org.slf4j.Logger;

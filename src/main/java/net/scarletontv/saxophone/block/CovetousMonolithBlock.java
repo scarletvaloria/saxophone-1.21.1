@@ -10,9 +10,14 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.random.Random;
@@ -31,7 +36,7 @@ public class CovetousMonolithBlock extends Block  {
         super(settings);
     }
 
-    public int timer = 5;
+    public int timer = 80;
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
@@ -64,14 +69,19 @@ public class CovetousMonolithBlock extends Block  {
             for (LivingEntity entity : entities) {
                 if (entity instanceof PlayerEntity player) {
                     if (!player.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack()) || !Saxophone.avarice.contains(player.getUuid())) {
-                        player.setVelocity(0, 5, 0);
-                        player.velocityModified = true;
+//                        player.setVelocity(0, 5, 0);
+//                        player.velocityModified = true;
+                        if (player instanceof ServerPlayerEntity serverPlayerEntity) {
+                            teleportToPurgatory(serverPlayerEntity);
+                            serverPlayerEntity.setHealth(serverPlayerEntity.getMaxHealth());
+                            player.requestRespawn();
+                        }
                         world.spawnParticles(ParticleTypes.END_ROD, player.getX(), player.getY(), player.getZ(), 50, 0, 0, 0, 0.05);
                     }
                 }
             }
 
-            timer = 5;
+            timer = 80;
         } else {
             Box box = new Box(pos).expand(50, 50, 50);
             List<LivingEntity> entities = world.getEntitiesByClass(
@@ -99,5 +109,31 @@ public class CovetousMonolithBlock extends Block  {
         }
         world.scheduleBlockTick(pos, this, 60); // 1 tick later
         super.scheduledTick(state, world, pos, random);
+    }
+
+    private void teleportToPurgatory(ServerPlayerEntity player) {
+        RegistryKey<World> heavenWorldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(Saxophone.MOD_ID, "asphodel"));
+
+        MinecraftServer server = player.getServer();
+        if (server == null) {
+            Saxophone.LOGGER.error("Server is null!");
+            return;
+        }
+
+        ServerWorld targetWorld = server.getWorld(heavenWorldKey);
+        if (targetWorld != null) {
+            BlockPos spawnPos = targetWorld.getSpawnPos();
+
+            player.teleport(
+                    targetWorld,
+                    0,
+                    spawnPos.getY() + 100,
+                    0,
+                    player.getYaw(),
+                    player.getPitch()
+            );
+        } else {
+            Saxophone.LOGGER.error("Could not find asphodel dimension!");
+        }
     }
 }

@@ -74,7 +74,7 @@ public class BulwarkItem extends Item implements ColorableItem, CustomHitSoundIt
                         ammo--;
                 }
                 if (user.getOffHandStack().isOf(this)) {
-                    if (ammo == 6 || ammo == 3) {
+                    if (ammo == 6 || ammo == 3 || ammo == 4 || ammo == 5) {
                         for (int i = 0; i < 6; i++) {
                             ShotgunBulletEntity bullet = new ShotgunBulletEntity(ModEntities.BULLET, serverWorld);
 
