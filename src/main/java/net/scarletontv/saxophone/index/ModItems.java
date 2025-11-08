@@ -82,7 +82,7 @@ public class ModItems {
                     ToolMaterials.NETHERITE,
                     new AcornItemSettings()
                             .maxCount(1)
-                            .attributeModifiers(AxeItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.5f))
+                            .attributeModifiers(AxeItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -3.0f))
             ));
 
     public static final Item WRATH_OF_TWILIGHT = registerItem("wrath_of_twilight",
@@ -90,6 +90,7 @@ public class ModItems {
                     ToolMaterials.NETHERITE,
                     new AcornItemSettings()
                             .maxCount(1)
+                            .attributeModifiers(WrathOfTwilightItem.createAttributeModifiers())
             ));
 
     public static final Item TWELVE_GAUGE = registerItem("bulwark",
@@ -110,6 +111,8 @@ public class ModItems {
         modifyItemNameColor(DEITYS_HANDBELL, 0xd70048);
         modifyItemNameColor(DEIFIC_WARRANT, 0xd70048);
         modifyItemNameColor(FORSAKEN_CHARTER, 0xd70048);
+        modifyItemNameColor(MARTYRDOM, 0xd70048);
+        modifyItemNameColor(WRATH_OF_TWILIGHT, 0xd70048);
         modifyItemNameColor(CONTRACT, 0x8a724c);
         modifyItemNameColor(SIGNED_CONTRACT, 0x611133);
         modifyItemNameColor(Item.fromBlock(ModBlocks.CLOUDED_THOUGHT), 0x38352f);

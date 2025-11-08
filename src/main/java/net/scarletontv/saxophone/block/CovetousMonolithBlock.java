@@ -1,12 +1,9 @@
 package net.scarletontv.saxophone.block;
 
-import com.nitron.nitrogen.util.interfaces.ScreenShaker;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
@@ -26,7 +23,6 @@ import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModParticles;
 import net.scarletontv.saxophone.index.ModSounds;
-import net.scarletontv.saxophone.index.ModStatusEffects;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -36,7 +32,7 @@ public class CovetousMonolithBlock extends Block  {
         super(settings);
     }
 
-    public int timer = 80;
+    public int timer = 3;
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
@@ -68,20 +64,18 @@ public class CovetousMonolithBlock extends Block  {
 
             for (LivingEntity entity : entities) {
                 if (entity instanceof PlayerEntity player) {
-                    if (!player.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack()) || !Saxophone.avarice.contains(player.getUuid())) {
-//                        player.setVelocity(0, 5, 0);
-//                        player.velocityModified = true;
-                        if (player instanceof ServerPlayerEntity serverPlayerEntity) {
+                    if (player instanceof ServerPlayerEntity serverPlayerEntity) {
+                        if (!serverPlayerEntity.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack())) {
                             teleportToPurgatory(serverPlayerEntity);
                             serverPlayerEntity.setHealth(serverPlayerEntity.getMaxHealth());
                             player.requestRespawn();
                         }
-                        world.spawnParticles(ParticleTypes.END_ROD, player.getX(), player.getY(), player.getZ(), 50, 0, 0, 0, 0.05);
                     }
+                    world.spawnParticles(ParticleTypes.END_ROD, player.getX(), player.getY(), player.getZ(), 50, 0, 0, 0, 0.05);
                 }
             }
 
-            timer = 80;
+            timer = 3;
         } else {
             Box box = new Box(pos).expand(50, 50, 50);
             List<LivingEntity> entities = world.getEntitiesByClass(

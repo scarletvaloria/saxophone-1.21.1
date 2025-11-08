@@ -1,12 +1,12 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "saxophone:item/martyrdom_gui"
+    "layer0": "saxophone:item/wrath_of_twilight_gui"
   },
   "overrides": [
     {
       "predicate": { "is_held": 1.0 },
-      "model": "saxophone:item/martyrdom_handheld"
+      "model": "saxophone:item/wrath_of_twilight_handheld"
     }
   ]
 }

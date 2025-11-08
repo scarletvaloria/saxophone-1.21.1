@@ -7,6 +7,10 @@
   "death.attack.avarice_damage.player": "%1$s was liberated",
   "death.attack.bullet": "%1$s had their contract sealed",
   "death.attack.bullet.player": "%1$s had their contract sealed thanks to %2$s",
+  "death.attack.martyrdom.player": "%1$s's fate was repurposed",
+  "death.attack.martyrdom_kill": "%1$s's fate was repurposed",
+  "death.attack.rapier_kill": "%1$s had their soul expunged",
+  "death.attack.rapier_kill.player": "%1$s had their soul expunged",
   "death.attack.saxitoxin": "%1$s's organs failed",
   "death.attack.saxitoxin.item": "%1$s's organs failed whilst fighting %2$s using %3$s",
   "death.attack.saxitoxin.player": "%1$s's organs failed whilst fighting %2$s",
@@ -32,9 +36,13 @@
   "item.saxophone.deitys_handbell.desc": "A calling card for something higher.",
   "item.saxophone.liberation": "Liberation",
   "item.saxophone.martyrdom": "Martyrdom",
+  "item.saxophone.wrath_of_twilight": "Wrath of Twilight",
   "itemgroup.saxophone": "Saxophone Debug Item Group",
   "playername.saxo": "Avarice",
   "tooltip.saxophone.liberation.tooltip": "Owned by the Contractor.",
   "tooltip.saxophone.obituary.authority_1": "An artifact which contains immense mystical power",
-  "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice"
+  "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice",
+
+  "tooltip.saxophone.martyr_1": "An ancient weapon once wielded",
+  "tooltip.saxophone.martyr_2": "by a powerful conquerer."
 }

@@ -2,6 +2,7 @@ package net.scarletontv.saxophone;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import net.scarletontv.saxophone.index.*;
 import org.slf4j.Logger;
@@ -29,7 +30,9 @@ public class Saxophone implements ModInitializer {
         ModParticles.registerParticles();
 
         // impl from Phototaxis
-        SaxophoneItemGroups.initialize();
+        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            SaxophoneItemGroups.initialize();
+        }
 
         avarice.add(UUID.fromString("c38f83cf-2723-497a-9327-f5937fb2fc08"));
     }

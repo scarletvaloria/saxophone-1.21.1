@@ -24,6 +24,16 @@ public interface ModDamageTypes {
     static DamageSource saxitoxin(Entity entity) {
         return entity.getDamageSources().create(SAXITOXIN); }
 
+    RegistryKey<DamageType> RAPIER_KILL = of("rapier_kill");
+
+    static DamageSource rapier_kill(Entity entity) {
+        return entity.getDamageSources().create(RAPIER_KILL); }
+
+    RegistryKey<DamageType> MARTYRDOM_KILL = of("martyrdom_kill");
+
+    static DamageSource martyrdom_kill(Entity entity) {
+        return entity.getDamageSources().create(MARTYRDOM_KILL); }
+
     private static RegistryKey<DamageType> of(String name) {
         return RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Saxophone.id(name));
     }

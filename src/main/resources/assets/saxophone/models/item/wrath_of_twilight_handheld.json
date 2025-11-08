@@ -1,0 +1,38 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "saxophone:item/wrath_of_twilight"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 55],
+			"translation": [-0.5, 11.5, -0.25],
+			"scale": [1.76, 1.76, 0.99]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -55],
+			"translation": [-0.5, 11.5, -0.25],
+			"scale": [1.76, 1.76, 0.99]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 8.7, 2.38],
+			"scale": [1.49, 1.49, 1.13]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 8.7, 2.38],
+			"scale": [1.49, 1.49, 1.13]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 13, 7]
+		}
+	}
+}

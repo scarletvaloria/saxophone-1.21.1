@@ -98,7 +98,7 @@ public class BulwarkItem extends Item implements ColorableItem, CustomHitSoundIt
         if (ammo == 0) {
                 user.playSoundToPlayer(ModSounds.SHOTGUN_RELOAD, SoundCategory.PLAYERS, 1, 1);
                 ammo = 6;
-                user.getItemCooldownManager().set(this, 35);
+                user.getItemCooldownManager().set(this, 75);
         }
         return super.use(world, user, hand);
     }

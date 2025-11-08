@@ -39,7 +39,7 @@ public abstract class ItemStackMixin {
         RegistryKey<World> heavenWorldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(Saxophone.MOD_ID, "asphodel"));
         if (user != null) {
             if (user.getWorld().getRegistryKey() == heavenWorldKey) {
-                if (!Saxophone.avarice.contains(user.getUuid()) || !user.isInCreativeMode()) {
+                if (!user.isInCreativeMode()) {
                     Random rand = new Random();
                     int randomNumber = rand.nextInt(3) + 1;
 
@@ -64,7 +64,7 @@ public abstract class ItemStackMixin {
         PlayerEntity user = context.getPlayer();
         if (user != null) {
             if (user.getWorld().getRegistryKey() == heavenWorldKey) {
-                if (!Saxophone.avarice.contains(user.getUuid()) || !user.isInCreativeMode()) {
+                if (!user.isInCreativeMode()) {
                     Random rand = new Random();
                     int randomNumber = rand.nextInt(3) + 1;
 
@@ -88,7 +88,7 @@ public abstract class ItemStackMixin {
         RegistryKey<World> heavenWorldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(Saxophone.MOD_ID, "asphodel"));
         if (user != null) {
             if (user.getWorld().getRegistryKey() == heavenWorldKey) {
-                if (!Saxophone.avarice.contains(user.getUuid()) || !user.isInCreativeMode()) {
+                if (!user.isInCreativeMode()) {
                     Random rand = new Random();
                     int randomNumber = rand.nextInt(3) + 1;
 
