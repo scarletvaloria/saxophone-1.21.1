@@ -1,9 +1,11 @@
 package net.scarletontv.saxophone;
 
+import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
+import net.scarletontv.saxophone.compat.SaxophoneConfig;
 import net.scarletontv.saxophone.index.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,8 @@ public class Saxophone implements ModInitializer {
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             SaxophoneItemGroups.initialize();
         }
+
+        MidnightConfig.init(MOD_ID, SaxophoneConfig.class);
 
         avarice.add(UUID.fromString("c38f83cf-2723-497a-9327-f5937fb2fc08"));
     }

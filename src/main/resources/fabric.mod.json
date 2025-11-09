@@ -12,9 +12,6 @@
     "KrimsonCinder (Textures)",
     "AcoYT (Code Help)"
   ],
-  "contact": {
-    "sources": "https://github.com/scarletvaloria/saxophone-1.21.1"
-  },
   "license": "MIT",
   "icon": "assets/saxophone/sax_icon.png",
   "environment": "*",

@@ -51,5 +51,8 @@
   "tooltip.saxophone.monolith_3": "You know what you've done.",
   "tooltip.saxophone.obituary.authority_1": "An artifact which contains immense mystical power",
   "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice",
-  "death.attack.encounter": "%1$s was the next step towards the Renewal"
+  "death.attack.encounter": "%1$s was the next step towards the Renewal",
+
+  "saxophone.midnightconfig.title": "Saxophone",
+  "saxophone.midnightconfig.monolithTicks": "Countdown for Covetous Monolith (Seconds)"
 }

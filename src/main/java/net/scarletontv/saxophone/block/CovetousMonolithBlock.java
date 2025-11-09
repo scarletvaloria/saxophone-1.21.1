@@ -23,6 +23,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.Saxophone;
+import net.scarletontv.saxophone.compat.SaxophoneConfig;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModParticles;
 import net.scarletontv.saxophone.index.ModSounds;
@@ -35,7 +36,7 @@ public class CovetousMonolithBlock extends Block {
         super(settings);
     }
 
-    public int timer = 2;
+    public int timer = SaxophoneConfig.monolithTicks;
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
@@ -82,7 +83,7 @@ public class CovetousMonolithBlock extends Block {
                 }
             }
 
-            timer = 2;
+            timer = SaxophoneConfig.monolithTicks;
         } else {
             Box box = new Box(pos).expand(50, 50, 50);
             List<LivingEntity> entities = world.getEntitiesByClass(
