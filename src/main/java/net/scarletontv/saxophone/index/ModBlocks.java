@@ -15,7 +15,7 @@ import net.scarletontv.saxophone.block.HarmfulThoughtBlock;
 import java.util.function.Function;
 
 public interface ModBlocks {
-    Block MONOLITH_BLOCK = createWithItem("covetous_monolith", CovetousMonolithBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+    Block MONOLITH_BLOCK = create("covetous_monolith", CovetousMonolithBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
             .sounds(BlockSoundGroup.ANCIENT_DEBRIS)
             .dropsNothing()
     );

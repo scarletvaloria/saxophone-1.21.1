@@ -47,25 +47,25 @@ public class InGameHudMixin {
         MinecraftClient client = MinecraftClient.getInstance();
         if (sprite == CROSSHAIR_TEXTURE && client.player != null && (client.player.getMainHandStack().isOf(ModItems.TWELVE_GAUGE) || client.player.getOffHandStack().isOf(ModItems.TWELVE_GAUGE))) {
             if (BulwarkItem.ammo == 6) {
-                original.call(instance, GUN_CROSSHAIR_FULL, x, y, 20, 13);
+                original.call(instance, GUN_CROSSHAIR_FULL, x-3, y, 20, 13);
             }
             if (BulwarkItem.ammo == 5) {
-                original.call(instance, GUN_CROSSHAIR_5, x, y, 20, 13);
+                original.call(instance, GUN_CROSSHAIR_5, x-3, y, 20, 13);
             }
             if (BulwarkItem.ammo == 4) {
-                original.call(instance, GUN_CROSSHAIR_4, x, y, 20, 13);
+                original.call(instance, GUN_CROSSHAIR_4, x-3, y, 20, 13);
             }
             if (BulwarkItem.ammo == 3) {
-                original.call(instance, GUN_CROSSHAIR_3, x, y, 20, 13);
+                original.call(instance, GUN_CROSSHAIR_3, x-3, y, 20, 13);
             }
             if (BulwarkItem.ammo == 2) {
-                original.call(instance, GUN_CROSSHAIR_2, x, y, 20, 13);
+                original.call(instance, GUN_CROSSHAIR_2, x-3, y, 20, 13);
             }
             if (BulwarkItem.ammo == 1) {
-                original.call(instance, GUN_CROSSHAIR_1, x, y, 20, 13);
+                original.call(instance, GUN_CROSSHAIR_1, x-3, y, 20, 13);
             }
             if (BulwarkItem.ammo == 0) {
-                original.call(instance, GUN_CROSSHAIR_EMPTY, x, y, 20, 13);
+                original.call(instance, GUN_CROSSHAIR_EMPTY, x-3, y, 20, 13);
             }
         } else {
             original.call(instance, sprite, x, y, width, height);

@@ -40,19 +40,21 @@ public abstract class ItemStackMixin {
         if (user != null) {
             if (user.getWorld().getRegistryKey() == heavenWorldKey) {
                 if (!user.isInCreativeMode()) {
-                    Random rand = new Random();
-                    int randomNumber = rand.nextInt(3) + 1;
+                    if (!user.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack())) {
+                        Random rand = new Random();
+                        int randomNumber = rand.nextInt(3) + 1;
 
-                    if (randomNumber == 1) {
-                        user.sendMessage(Text.literal("Your hands fumble with the item".formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY)), true);
+                        if (randomNumber == 1) {
+                            user.sendMessage(Text.literal("Your hands fumble with the item".formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY)), true);
+                        }
+                        if (randomNumber == 2) {
+                            user.sendMessage(Text.literal("You lose track of what you were doing".formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY)), true);
+                        }
+                        if (randomNumber == 3) {
+                            user.sendMessage(Text.literal("You can't focus on the task at hand".formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY)), true);
+                        }
+                        cir.setReturnValue(TypedActionResult.fail(user.getStackInHand(hand)));
                     }
-                    if (randomNumber == 2) {
-                        user.sendMessage(Text.literal("You lose track of what you were doing".formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY)), true);
-                    }
-                    if (randomNumber == 3) {
-                        user.sendMessage(Text.literal("You can't focus on the task at hand".formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY)), true);
-                    }
-                    cir.setReturnValue(TypedActionResult.fail(user.getStackInHand(hand)));
                 }
             }
         }
@@ -65,19 +67,21 @@ public abstract class ItemStackMixin {
         if (user != null) {
             if (user.getWorld().getRegistryKey() == heavenWorldKey) {
                 if (!user.isInCreativeMode()) {
-                    Random rand = new Random();
-                    int randomNumber = rand.nextInt(3) + 1;
+                    if (!user.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack())) {
+                        Random rand = new Random();
+                        int randomNumber = rand.nextInt(3) + 1;
 
-                    if (randomNumber == 1) {
-                        user.sendMessage(Text.literal("Your hands fumble with the item".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        if (randomNumber == 1) {
+                            user.sendMessage(Text.literal("Your hands fumble with the item".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        }
+                        if (randomNumber == 2) {
+                            user.sendMessage(Text.literal("You lose track of what you were doing".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        }
+                        if (randomNumber == 3) {
+                            user.sendMessage(Text.literal("You can't focus on the task at hand".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        }
+                        cir.setReturnValue(ActionResult.FAIL);
                     }
-                    if (randomNumber == 2) {
-                        user.sendMessage(Text.literal("You lose track of what you were doing".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
-                    }
-                    if (randomNumber == 3) {
-                        user.sendMessage(Text.literal("You can't focus on the task at hand".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
-                    }
-                    cir.setReturnValue(ActionResult.FAIL);
                 }
             }
         }
@@ -89,19 +93,21 @@ public abstract class ItemStackMixin {
         if (user != null) {
             if (user.getWorld().getRegistryKey() == heavenWorldKey) {
                 if (!user.isInCreativeMode()) {
-                    Random rand = new Random();
-                    int randomNumber = rand.nextInt(3) + 1;
+                    if (!user.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack())) {
+                        Random rand = new Random();
+                        int randomNumber = rand.nextInt(3) + 1;
 
-                    if (randomNumber == 1) {
-                        user.sendMessage(Text.literal("Your hands fumble with the item".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        if (randomNumber == 1) {
+                            user.sendMessage(Text.literal("Your hands fumble with the item".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        }
+                        if (randomNumber == 2) {
+                            user.sendMessage(Text.literal("You lose track of what you were doing".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        }
+                        if (randomNumber == 3) {
+                            user.sendMessage(Text.literal("You can't focus on the task at hand".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
+                        }
+                        cir.setReturnValue(ActionResult.FAIL);
                     }
-                    if (randomNumber == 2) {
-                        user.sendMessage(Text.literal("You lose track of what you were doing".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
-                    }
-                    if (randomNumber == 3) {
-                        user.sendMessage(Text.literal("You can't focus on the task at hand".formatted(Formatting.ITALIC).formatted(Formatting.GRAY)), true);
-                    }
-                    cir.setReturnValue(ActionResult.FAIL);
                 }
             }
         }

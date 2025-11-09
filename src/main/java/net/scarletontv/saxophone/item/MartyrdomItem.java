@@ -31,19 +31,27 @@ public class MartyrdomItem extends AxeItem implements ColorableItem, KillEffectI
         super(toolMaterial, settings);
     }
 
-    @Environment(EnvType.CLIENT)
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public int getEnchantability() {
+        return 0;
+    }
+
     @Override
     public int startColor(ItemStack itemStack) {
         return 0xFFd70048;
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int endColor(ItemStack itemStack) {
         return 0xFF8e1a41;
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int backgroundColor(ItemStack itemStack) {
         return 0xF01c0810;

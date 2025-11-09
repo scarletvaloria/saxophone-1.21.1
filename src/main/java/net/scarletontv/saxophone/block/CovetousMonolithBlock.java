@@ -1,5 +1,6 @@
 package net.scarletontv.saxophone.block;
 
+import com.nitron.nitrogen.util.interfaces.ScreenShaker;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,6 +15,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -27,17 +30,19 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CovetousMonolithBlock extends Block  {
+public class CovetousMonolithBlock extends Block {
     public CovetousMonolithBlock(Settings settings) {
         super(settings);
     }
 
-    public int timer = 3;
+    public int timer = 2;
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        world.scheduleBlockTick(pos, this, 30);
-        placer.playSound(SoundEvents.ENTITY_WITHER_SPAWN);
+        if (placer != null) {
+            world.scheduleBlockTick(pos, this, 30);
+            placer.playSound(SoundEvents.ENTITY_WITHER_SPAWN);
+        }
         super.onPlaced(world, pos, state, placer, itemStack);
     }
 
@@ -69,13 +74,15 @@ public class CovetousMonolithBlock extends Block  {
                             teleportToPurgatory(serverPlayerEntity);
                             serverPlayerEntity.setHealth(serverPlayerEntity.getMaxHealth());
                             player.requestRespawn();
+
+                            serverPlayerEntity.getServer().getPlayerManager().broadcast(Text.literal((player.getDisplayName() != null ? player.getDisplayName().getString() : player.getNameForScoreboard()) + " was the next step towards the Renewal"), false);
                         }
                     }
                     world.spawnParticles(ParticleTypes.END_ROD, player.getX(), player.getY(), player.getZ(), 50, 0, 0, 0, 0.05);
                 }
             }
 
-            timer = 3;
+            timer = 2;
         } else {
             Box box = new Box(pos).expand(50, 50, 50);
             List<LivingEntity> entities = world.getEntitiesByClass(
@@ -130,4 +137,6 @@ public class CovetousMonolithBlock extends Block  {
             Saxophone.LOGGER.error("Could not find asphodel dimension!");
         }
     }
+
+
 }

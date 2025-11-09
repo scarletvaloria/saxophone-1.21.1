@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.scarletontv.saxophone.Saxophone;
+import net.scarletontv.saxophone.block.item.CovetousMonolithBlockItem;
 import net.scarletontv.saxophone.item.*;
 
 import java.util.function.Function;
@@ -101,6 +102,13 @@ public class ModItems {
                             .attributeModifiers(BulwarkItem.createAttributeModifiers())
             ));
 
+    public static final Item MONOLITH_ITEM = registerItem("covetous_monolith",
+            new CovetousMonolithBlockItem(
+                    ModBlocks.MONOLITH_BLOCK,
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Saxophone.MOD_ID, name), item);
     }
@@ -119,6 +127,7 @@ public class ModItems {
         modifyItemNameColor(Item.fromBlock(ModBlocks.HARMFUL_THOUGHT), 0x38352f);
         modifyItemNameColor(AVARITIAS_MASK, 0xab5c7e);
         modifyItemNameColor(TWELVE_GAUGE, 0xb0dd90);
+        modifyItemNameColor(Item.fromBlock(ModBlocks.MONOLITH_BLOCK), 0xd70048);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);

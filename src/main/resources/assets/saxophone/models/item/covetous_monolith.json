@@ -1,6 +1,3 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "saxophone:item/placeholder_mono_item"
-  }
+  "parent": "saxophone:block/covetous_monolith"
 }

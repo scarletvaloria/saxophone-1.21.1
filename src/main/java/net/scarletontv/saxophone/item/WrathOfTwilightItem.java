@@ -33,19 +33,16 @@ public class WrathOfTwilightItem extends SwordItem implements ColorableItem, Cus
         super(toolMaterial, settings);
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int startColor(ItemStack itemStack) {
         return 0xFFd70048;
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int endColor(ItemStack itemStack) {
         return 0xFF8e1a41;
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int backgroundColor(ItemStack itemStack) {
         return 0xF01c0810;
