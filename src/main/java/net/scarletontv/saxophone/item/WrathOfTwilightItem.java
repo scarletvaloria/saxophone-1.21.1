@@ -97,8 +97,10 @@ public class WrathOfTwilightItem extends SwordItem implements ColorableItem, Cus
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        entity.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 200));
-        user.getItemCooldownManager().set(this, 35);
+        if (!user.getItemCooldownManager().isCoolingDown(this)) {
+            entity.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 200));
+            user.getItemCooldownManager().set(this, 1800);
+        }
         return super.useOnEntity(stack, user, entity, hand);
     }
 }

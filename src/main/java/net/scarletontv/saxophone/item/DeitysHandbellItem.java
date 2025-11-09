@@ -15,6 +15,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModParticles;
 import net.scarletontv.saxophone.index.ModSounds;
 import net.scarletontv.saxophone.index.ModStatusEffects;
@@ -38,29 +39,32 @@ public class DeitysHandbellItem extends Item implements ColorableItem {
 
             for (LivingEntity entity : entities) {
                 if (entity != user) {
-                    entity.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 260));
+                    if (entity instanceof PlayerEntity player) {
+                        if (!player.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack())) {
+                            entity.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 240));
+                        }
+                    } else {
+                        entity.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 240));
+                    }
                 }
             }
             serverWorld.spawnParticles(ModParticles.FOLLY, user.getX(), user.getY() + 0.5, user.getZ(), 15, 0, 0, 0, 0.05);
 
-            user.getItemCooldownManager().set(this, 60);
+            user.getItemCooldownManager().set(this, 1200);
         }
         return super.use(world, user, hand);
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int startColor(ItemStack itemStack) {
         return 0xFFd70048;
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int endColor(ItemStack itemStack) {
         return 0xFF8e1a41;
     }
 
-    @Environment(EnvType.CLIENT)
     @Override
     public int backgroundColor(ItemStack itemStack) {
         return 0xF01c0810;
