@@ -3,6 +3,7 @@
   "package": "net.scarletontv.saxophone.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EnderPearlItemMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
@@ -19,6 +20,7 @@
     "client.AbstractSoundInstanceMixin",
     "client.ArmorFeatureRendererMixin",
     "client.InGameHudMixin",
+    "client.PlayerEntityRendererMixin",
     "client.PlayerListHudMixin"
   ]
 }

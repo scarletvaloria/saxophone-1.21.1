@@ -10,8 +10,8 @@ import net.minecraft.util.Formatting;
 
 import java.util.List;
 
-public class CovetousMonolithBlockItem extends BlockItem implements ColorableItem {
-    public CovetousMonolithBlockItem(Block block, Settings settings) {
+public class DenouementBlockItem extends BlockItem implements ColorableItem {
+    public DenouementBlockItem(Block block, Settings settings) {
         super(block, settings);
     }
 
@@ -32,9 +32,9 @@ public class CovetousMonolithBlockItem extends BlockItem implements ColorableIte
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.saxophone.monolith_1") .withColor(0x8e1a41).formatted(Formatting.ITALIC));
-        tooltip.add(Text.translatable("tooltip.saxophone.monolith_2") .withColor(0x8e1a41).formatted(Formatting.ITALIC));
-        tooltip.add(Text.translatable("tooltip.saxophone.monolith_3") .withColor(0x8e1a41).formatted(Formatting.ITALIC));
+        tooltip.add(Text.translatable("tooltip.saxophone.denouement_1") .withColor(0x8e1a41).formatted(Formatting.ITALIC));
+        tooltip.add(Text.translatable("tooltip.saxophone.denouement_2") .withColor(0x8e1a41).formatted(Formatting.ITALIC));
         super.appendTooltip(stack, context, tooltip, type);
     }
+
 }

@@ -1,12 +1,10 @@
 package net.scarletontv.saxophone.entity;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.index.ModDamageTypes;

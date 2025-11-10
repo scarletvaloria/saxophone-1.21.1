@@ -1,9 +1,11 @@
 package net.scarletontv.saxophone.block;
 
-import com.nitron.nitrogen.util.interfaces.ScreenShaker;
-import net.minecraft.block.Block;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -15,7 +17,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +24,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.Saxophone;
+import net.scarletontv.saxophone.block.entity.CovetousMonolithBlockEntity;
 import net.scarletontv.saxophone.compat.SaxophoneConfig;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModParticles;
@@ -31,9 +33,25 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CovetousMonolithBlock extends Block {
+public class CovetousMonolithBlock extends BlockWithEntity {
+    public static final MapCodec<CovetousMonolithBlock> CODEC = createCodec(CovetousMonolithBlock::new);
     public CovetousMonolithBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new CovetousMonolithBlockEntity(pos, state);
+    }
+
+    @Override
+    protected BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 
     public int timer = SaxophoneConfig.monolithTicks;

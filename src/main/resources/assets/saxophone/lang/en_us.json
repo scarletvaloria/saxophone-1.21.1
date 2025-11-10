@@ -54,5 +54,11 @@
   "death.attack.encounter": "%1$s was the next step towards the Renewal",
 
   "saxophone.midnightconfig.title": "Saxophone",
-  "saxophone.midnightconfig.monolithTicks": "Countdown for Covetous Monolith (Seconds)"
+  "saxophone.midnightconfig.monolithTicks": "Countdown for Covetous Monolith (Seconds)",
+  "text.soulbound.fail": "You cannot reverse what has been done.",
+  "playername.erased": "ForgottenEntity",
+
+  "item.saxophone.denouement": "Denouement",
+  "tooltip.saxophone.denouement_1": "A goddess's final stand.",
+  "tooltip.saxophone.denouement_2": "One for all."
 }

@@ -1,6 +1,5 @@
 package net.scarletontv.saxophone.index;
 
-import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -40,5 +39,7 @@ public interface SaxophoneItemGroups {
         itemGroup.add(ModItems.WRATH_OF_TWILIGHT);
         itemGroup.add(ModItems.TWELVE_GAUGE);
         itemGroup.add(ModBlocks.MONOLITH_BLOCK);
+        itemGroup.add(ModItems.SOULBINDING_EFFIGY);
+        itemGroup.add(ModBlocks.DENOUEMENT);
     }
 }

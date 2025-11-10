@@ -7,6 +7,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -21,6 +22,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModItems;
@@ -97,6 +99,12 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
             }
 
         }
+
+        if (this.getStackInHand(this.getActiveHand()).isOf(ModItems.MARTYRDOM)) {
+            if (world instanceof ServerWorld serverWorld) {
+                addScreenShake(5, 1);
+            }
+        }
     }
 
     @Inject(method = "tick", at = @At("HEAD"))
@@ -155,6 +163,16 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
         if (Saxophone.avarice.contains(player.getUuid())) {
             return Text.translatable("playername.saxo").withColor(0xff003c).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED);
         }
+        if (Saxophone.erasedUUIDS.contains(player.getUuid())) {
+            return Text.translatable("playername.erased").withColor(0x341B20).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED);
+        }
         return original;
+    }
+
+    @Inject(method = "canPlaceOn", at = @At("HEAD"))
+    private void denyPlacements(BlockPos pos, Direction facing, ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+        if (Saxophone.erasedUUIDS.contains(this.getUuid())) {
+            cir.setReturnValue(false);
+        }
     }
 }

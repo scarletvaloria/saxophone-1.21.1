@@ -42,6 +42,9 @@ public class InGameHudMixin {
     @Unique
     private static final Identifier GUN_CROSSHAIR_EMPTY = Saxophone.id("hud/gun_crosshair_empty");
 
+    @Unique
+    private static final Identifier ERASED_OVERLAY = Saxophone.id("hud/effect_overlay/erased_overlay");
+
     @WrapOperation(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V"))
     private void customCrosshair(DrawContext instance, Identifier sprite, int x, int y, int width, int height, Operation<Void> original) {
         MinecraftClient client = MinecraftClient.getInstance();

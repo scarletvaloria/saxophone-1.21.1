@@ -10,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.CovetousMonolithBlock;
+import net.scarletontv.saxophone.block.DenouementBlock;
 import net.scarletontv.saxophone.block.HarmfulThoughtBlock;
 
 import java.util.function.Function;
@@ -31,6 +32,12 @@ public interface ModBlocks {
             .sounds(BlockSoundGroup.GLASS)
             .dropsNothing()
             .emissiveLighting((state, world, pos) -> true)
+            .noBlockBreakParticles()
+    );
+
+    Block DENOUEMENT = create("denouement", DenouementBlock::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
+            .sounds(BlockSoundGroup.AMETHYST_BLOCK)
+            .dropsNothing()
             .noBlockBreakParticles()
     );
 

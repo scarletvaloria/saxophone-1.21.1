@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.item.CovetousMonolithBlockItem;
+import net.scarletontv.saxophone.block.item.DenouementBlockItem;
 import net.scarletontv.saxophone.item.*;
 
 import java.util.function.Function;
@@ -109,6 +110,19 @@ public class ModItems {
                             .maxCount(1)
             ));
 
+    public static final Item DENOUEMENT_ITEM = registerItem("denouement",
+            new DenouementBlockItem(
+                    ModBlocks.DENOUEMENT,
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
+    public static final Item SOULBINDING_EFFIGY = registerItem("soulbinding_effigy",
+            new SoulbindingEffigyItem(
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Saxophone.MOD_ID, name), item);
     }
@@ -121,6 +135,7 @@ public class ModItems {
         modifyItemNameColor(FORSAKEN_CHARTER, 0xd70048);
         modifyItemNameColor(MARTYRDOM, 0xd70048);
         modifyItemNameColor(WRATH_OF_TWILIGHT, 0xd70048);
+        modifyItemNameColor(SOULBINDING_EFFIGY, 0xd70048);
         modifyItemNameColor(CONTRACT, 0x8a724c);
         modifyItemNameColor(SIGNED_CONTRACT, 0x611133);
         modifyItemNameColor(Item.fromBlock(ModBlocks.CLOUDED_THOUGHT), 0x38352f);
@@ -128,6 +143,7 @@ public class ModItems {
         modifyItemNameColor(AVARITIAS_MASK, 0xab5c7e);
         modifyItemNameColor(TWELVE_GAUGE, 0xb0dd90);
         modifyItemNameColor(Item.fromBlock(ModBlocks.MONOLITH_BLOCK), 0xd70048);
+        modifyItemNameColor(Item.fromBlock(ModBlocks.DENOUEMENT), 0xd70048);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);

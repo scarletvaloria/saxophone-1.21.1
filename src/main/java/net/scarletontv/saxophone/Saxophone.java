@@ -2,7 +2,6 @@ package net.scarletontv.saxophone;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import net.scarletontv.saxophone.compat.SaxophoneConfig;
@@ -21,6 +20,9 @@ public class Saxophone implements ModInitializer {
         return Identifier.of(MOD_ID, path); }
 
     public static final ArrayList<UUID> avarice = new ArrayList<>();
+    public static final ArrayList<UUID> erasedUUIDS = new ArrayList<>();
+
+
 
     @Override
     public void onInitialize() {
@@ -30,6 +32,7 @@ public class Saxophone implements ModInitializer {
         ModStatusEffects.registerStatusEffects();
         ModBlocks.registerBlocks();
         ModParticles.registerParticles();
+        ModBlockEntities.registerBlockEntities();
 
         // impl from Phototaxis
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {

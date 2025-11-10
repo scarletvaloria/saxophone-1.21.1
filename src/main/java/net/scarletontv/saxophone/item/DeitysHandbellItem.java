@@ -1,8 +1,6 @@
 package net.scarletontv.saxophone.item;
 
 import com.nitron.nitrogen.util.interfaces.ColorableItem;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;

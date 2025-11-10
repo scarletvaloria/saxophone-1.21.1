@@ -6,11 +6,14 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.entity.passive.AllayEntity;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
+import net.scarletontv.saxophone.block.entity.render.CovetousMonolithBlockEntityRenderer;
+import net.scarletontv.saxophone.block.entity.render.DenouementBlockEntityRenderer;
 import net.scarletontv.saxophone.entity.ShotgunBulletEntity;
+import net.scarletontv.saxophone.index.ModBlockEntities;
 import net.scarletontv.saxophone.index.ModEntities;
 import net.scarletontv.saxophone.index.ModParticles;
 import org.joml.Vector3f;
@@ -23,6 +26,8 @@ public class SaxophoneClient implements ClientModInitializer {
     public void onInitializeClient() {
         ModParticles.registerParticlesClient();
         ModEntities.registerEntitiesClient();
+        BlockEntityRendererFactories.register(ModBlockEntities.DENOUEMENT, context -> new DenouementBlockEntityRenderer());
+        BlockEntityRendererFactories.register(ModBlockEntities.MONOLITH, context -> new CovetousMonolithBlockEntityRenderer());
 
         WorldRenderEvents.AFTER_TRANSLUCENT.register(context -> {
             MinecraftClient client = MinecraftClient.getInstance();
