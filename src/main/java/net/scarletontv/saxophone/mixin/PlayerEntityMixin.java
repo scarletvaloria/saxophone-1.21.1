@@ -169,7 +169,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
         return original;
     }
 
-    @Inject(method = "canPlaceOn", at = @At("HEAD"))
+    @Inject(method = "canPlaceOn", at = @At("HEAD"), cancellable = true)
     private void denyPlacements(BlockPos pos, Direction facing, ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         if (Saxophone.erasedUUIDS.contains(this.getUuid())) {
             cir.setReturnValue(false);
