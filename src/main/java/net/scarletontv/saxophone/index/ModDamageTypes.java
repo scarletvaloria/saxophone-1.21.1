@@ -34,6 +34,11 @@ public interface ModDamageTypes {
     static DamageSource martyrdom_kill(Entity entity) {
         return entity.getDamageSources().create(MARTYRDOM_KILL); }
 
+    RegistryKey<DamageType> OFFERING = of("offering");
+
+    static DamageSource offering(Entity entity) {
+        return entity.getDamageSources().create(OFFERING); }
+
     private static RegistryKey<DamageType> of(String name) {
         return RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Saxophone.id(name));
     }

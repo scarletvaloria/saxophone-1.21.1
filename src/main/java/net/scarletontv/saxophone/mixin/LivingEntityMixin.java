@@ -1,19 +1,37 @@
 package net.scarletontv.saxophone.mixin;
 
+import com.terraformersmc.modmenu.util.mod.Mod;
 import net.minecraft.entity.Attackable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.GameMode;
 import net.minecraft.world.World;
+import net.scarletontv.saxophone.Saxophone;
+import net.scarletontv.saxophone.index.ModDamageTypes;
 import net.scarletontv.saxophone.index.ModStatusEffects;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Attackable {
+    @Shadow
+    public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
+
+    @Shadow
+    public abstract boolean addStatusEffect(StatusEffectInstance effect);
+
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
@@ -32,6 +50,19 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         if ((Object) this instanceof LivingEntity player) {
             if (player.hasStatusEffect(ModStatusEffects.INSISTENCE)) {
                 cir.setReturnValue(Vec3d.ZERO);
+            }
+        }
+    }
+
+    @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;onDeath(Lnet/minecraft/entity/damage/DamageSource;)V"))
+    private void duh(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        Saxophone.LOGGER.debug("running yay");
+        LivingEntity living = (LivingEntity)(Object)this;
+        if (source.isOf(ModDamageTypes.OFFERING)) {
+            if (living instanceof ServerPlayerEntity serverPlayerEntity) {
+                serverPlayerEntity.changeGameMode(GameMode.SPECTATOR);
+                serverPlayerEntity.requestRespawn();
+
             }
         }
     }

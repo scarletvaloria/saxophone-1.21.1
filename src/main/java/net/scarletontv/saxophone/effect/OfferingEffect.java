@@ -1,14 +1,15 @@
 package net.scarletontv.saxophone.effect;
 
 import com.nitron.nitrogen.util.interfaces.StatusEffectBackground;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.stat.Stat;
 import net.minecraft.util.Identifier;
 import net.scarletontv.saxophone.Saxophone;
+import net.scarletontv.saxophone.index.ModDamageTypes;
 
-public class FollyEffect extends StatusEffect implements StatusEffectBackground {
-    public FollyEffect(StatusEffectCategory category, int color) {
+public class OfferingEffect extends StatusEffect implements StatusEffectBackground {
+    public OfferingEffect(StatusEffectCategory category, int color) {
         super(category, color);
     }
 
@@ -26,4 +27,17 @@ public class FollyEffect extends StatusEffect implements StatusEffectBackground 
     public Identifier hudSprite() {
         return Identifier.of(Saxophone.MOD_ID, "hud/insis_bg");
     }
+
+    @Override
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+        entity.damage(ModDamageTypes.offering(entity), 2.5f);
+        return super.applyUpdateEffect(entity, amplifier);
+    }
+
+    @Override
+    public boolean canApplyUpdateEffect(int duration, int amplifier) {
+        int i = 25;
+        return duration % i == 0;
+    }
+
 }

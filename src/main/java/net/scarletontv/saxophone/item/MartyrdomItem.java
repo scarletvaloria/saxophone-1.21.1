@@ -80,25 +80,22 @@ public class MartyrdomItem extends AxeItem implements ColorableItem, KillEffectI
         RegistryKey<World> heavenWorldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(Saxophone.MOD_ID, "asphodel"));
 
         MinecraftServer server = player.getServer();
-        if (server == null) {
-            Saxophone.LOGGER.error("Server is null!");
-            return;
-        }
+        if (server != null) {
+            ServerWorld targetWorld = server.getWorld(heavenWorldKey);
+            if (targetWorld != null) {
+                BlockPos spawnPos = targetWorld.getSpawnPos();
 
-        ServerWorld targetWorld = server.getWorld(heavenWorldKey);
-        if (targetWorld != null) {
-            BlockPos spawnPos = targetWorld.getSpawnPos();
-
-            player.teleport(
-                    targetWorld,
-                    0,
-                    spawnPos.getY() + 100,
-                    0,
-                    player.getYaw(),
-                    player.getPitch()
-            );
-        } else {
-            Saxophone.LOGGER.error("Could not find asphodel dimension!");
+                player.teleport(
+                        targetWorld,
+                        0,
+                        spawnPos.getY() + 100,
+                        0,
+                        player.getYaw(),
+                        player.getPitch()
+                );
+            } else {
+                Saxophone.LOGGER.error("Could not find asphodel dimension!");
+            }
         }
     }
 

@@ -25,8 +25,5 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
         if (Saxophone.avarice.contains(entity.getUuid()) && EquipmentSlot.HEAD.isArmorSlot()) {
             ci.cancel();
         }
-        if (Saxophone.erasedUUIDS.contains(entity.getUuid())) {
-            ci.cancel();
-        }
     }
 }

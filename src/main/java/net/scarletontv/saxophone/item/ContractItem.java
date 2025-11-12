@@ -13,6 +13,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModStatusEffects;
 
@@ -32,6 +33,7 @@ public class ContractItem extends Item implements ColorableItem {
                 stack.decrement(1);
                 user.giveItemStack(ModItems.SIGNED_CONTRACT.getDefaultStack());
                 user.damage(user.getDamageSources().generic(), 3f);
+                Saxophone.contractedPlayers.add(user.getUuid());
             }
         }
         return super.use(world, user, hand);

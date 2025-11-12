@@ -103,6 +103,8 @@ public class ModItems {
                             .attributeModifiers(BulwarkItem.createAttributeModifiers())
             ));
 
+
+    // blockitems
     public static final Item MONOLITH_ITEM = registerItem("covetous_monolith",
             new CovetousMonolithBlockItem(
                     ModBlocks.MONOLITH_BLOCK,
@@ -113,12 +115,6 @@ public class ModItems {
     public static final Item DENOUEMENT_ITEM = registerItem("denouement",
             new DenouementBlockItem(
                     ModBlocks.DENOUEMENT,
-                    new AcornItemSettings()
-                            .maxCount(1)
-            ));
-
-    public static final Item SOULBINDING_EFFIGY = registerItem("soulbinding_effigy",
-            new SoulbindingEffigyItem(
                     new AcornItemSettings()
                             .maxCount(1)
             ));
@@ -135,7 +131,6 @@ public class ModItems {
         modifyItemNameColor(FORSAKEN_CHARTER, 0xd70048);
         modifyItemNameColor(MARTYRDOM, 0xd70048);
         modifyItemNameColor(WRATH_OF_TWILIGHT, 0xd70048);
-        modifyItemNameColor(SOULBINDING_EFFIGY, 0xd70048);
         modifyItemNameColor(CONTRACT, 0x8a724c);
         modifyItemNameColor(SIGNED_CONTRACT, 0x611133);
         modifyItemNameColor(Item.fromBlock(ModBlocks.CLOUDED_THOUGHT), 0x38352f);

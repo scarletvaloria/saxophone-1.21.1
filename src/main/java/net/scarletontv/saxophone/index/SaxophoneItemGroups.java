@@ -39,7 +39,6 @@ public interface SaxophoneItemGroups {
         itemGroup.add(ModItems.WRATH_OF_TWILIGHT);
         itemGroup.add(ModItems.TWELVE_GAUGE);
         itemGroup.add(ModBlocks.MONOLITH_BLOCK);
-        itemGroup.add(ModItems.SOULBINDING_EFFIGY);
         itemGroup.add(ModBlocks.DENOUEMENT);
     }
 }
