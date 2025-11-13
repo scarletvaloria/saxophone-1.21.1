@@ -8,6 +8,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -16,6 +17,7 @@ import net.minecraft.world.GameMode;
 import net.minecraft.world.World;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModDamageTypes;
+import net.scarletontv.saxophone.index.ModParticles;
 import net.scarletontv.saxophone.index.ModStatusEffects;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,6 +25,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Objects;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Attackable {
@@ -56,13 +60,15 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
 
     @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;onDeath(Lnet/minecraft/entity/damage/DamageSource;)V"))
     private void duh(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        Saxophone.LOGGER.debug("running yay");
         LivingEntity living = (LivingEntity)(Object)this;
+        World world = living.getWorld();
         if (source.isOf(ModDamageTypes.OFFERING)) {
             if (living instanceof ServerPlayerEntity serverPlayerEntity) {
-                serverPlayerEntity.changeGameMode(GameMode.SPECTATOR);
-                serverPlayerEntity.requestRespawn();
-
+                if (world instanceof ServerWorld serverWorld) {
+                    serverPlayerEntity.changeGameMode(GameMode.SPECTATOR);
+                    serverPlayerEntity.requestRespawn();
+                    serverWorld.spawnParticles(ModParticles.FOLLY, living.getX(), living.getY(), living.getZ(), 50, 0, 0, 0, 0.4);
+                }
             }
         }
     }

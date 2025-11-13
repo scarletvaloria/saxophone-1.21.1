@@ -61,5 +61,9 @@
   "tooltip.saxophone.denouement_2": "One for all.",
   "effect.saxophone.offering": "Offering",
   "item.saxophone.salvation.desc": "A tool used to save us from what's coming.",
-  "item.saxophone.salvation": "Salvation"
+  "item.saxophone.salvation": "Salvation",
+
+  "death.attack.offering": "%1$s had their existence repurposed",
+  "death.attack.offering.player": "%1$s had their existence repurposed",
+  "death.attack.offering.item": "%1$s had their existence repurposed"
 }
