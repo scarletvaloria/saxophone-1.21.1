@@ -103,6 +103,14 @@ public class ModItems {
                             .attributeModifiers(BulwarkItem.createAttributeModifiers())
             ));
 
+    public static final Item SALVATION = registerItem("salvation",
+            new SalvationItem(
+                    ToolMaterials.NETHERITE,
+                    new AcornItemSettings()
+                            .maxCount(1)
+                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.4f))
+            ));
+
 
     // blockitems
     public static final Item MONOLITH_ITEM = registerItem("covetous_monolith",
@@ -139,6 +147,7 @@ public class ModItems {
         modifyItemNameColor(TWELVE_GAUGE, 0xb0dd90);
         modifyItemNameColor(Item.fromBlock(ModBlocks.MONOLITH_BLOCK), 0xd70048);
         modifyItemNameColor(Item.fromBlock(ModBlocks.DENOUEMENT), 0xd70048);
+        modifyItemNameColor(SALVATION, 0x2cfcf3);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);

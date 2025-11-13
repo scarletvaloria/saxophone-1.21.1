@@ -16,7 +16,7 @@ import net.scarletontv.saxophone.block.HarmfulThoughtBlock;
 import java.util.function.Function;
 
 public interface ModBlocks {
-    Block MONOLITH_BLOCK = create("covetous_monolith", CovetousMonolithBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+    Block MONOLITH_BLOCK = create("covetous_monolith", CovetousMonolithBlock::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
             .sounds(BlockSoundGroup.ANCIENT_DEBRIS)
             .dropsNothing()
     );
@@ -38,7 +38,6 @@ public interface ModBlocks {
     Block DENOUEMENT = create("denouement", DenouementBlock::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
             .sounds(BlockSoundGroup.AMETHYST_BLOCK)
             .dropsNothing()
-            .noBlockBreakParticles()
     );
 
     static Block create(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {

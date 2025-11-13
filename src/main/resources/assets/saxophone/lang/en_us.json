@@ -59,5 +59,7 @@
   "item.saxophone.denouement": "Denouement",
   "tooltip.saxophone.denouement_1": "A goddess's final stand.",
   "tooltip.saxophone.denouement_2": "One for all.",
-  "effect.silly": "Offering"
+  "effect.saxophone.offering": "Offering",
+  "item.saxophone.salvation.desc": "A tool used to save us from what's coming.",
+  "item.saxophone.salvation": "Salvation"
 }

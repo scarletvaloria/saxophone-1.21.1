@@ -40,5 +40,6 @@ public interface SaxophoneItemGroups {
         itemGroup.add(ModItems.TWELVE_GAUGE);
         itemGroup.add(ModBlocks.MONOLITH_BLOCK);
         itemGroup.add(ModBlocks.DENOUEMENT);
+        itemGroup.add(ModItems.SALVATION);
     }
 }

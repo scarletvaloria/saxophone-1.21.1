@@ -1,0 +1,32 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"1": "saxophone:item/salvation_gui",
+		"layer0": "saxophone:item/salvation",
+		"particle": "saxophone:item/salvation_gui"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 55],
+			"translation": [0, 16.25, -1.25],
+			"scale": [2.19, 2.19, 1.27]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -55],
+			"translation": [0, 16.25, -1.25],
+			"scale": [2.19, 2.19, 1.27]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.87, 1.87, 1.51]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.87, 1.87, 1.51]
+		}
+	}
+}
