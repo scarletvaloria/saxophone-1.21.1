@@ -13,8 +13,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.entity.DenouementBlockEntity;
-import net.scarletontv.saxophone.effect.SaxitoxinEffect;
 import net.scarletontv.saxophone.index.ModStatusEffects;
 import org.jetbrains.annotations.Nullable;
 
@@ -50,7 +50,9 @@ public class DenouementBlock extends BlockWithEntity {
             Collection<ServerPlayerEntity> the_scooby_gang = server.getPlayerManager().getPlayerList();
 
             for (PlayerEntity player : the_scooby_gang) {
-                player.addStatusEffect(new StatusEffectInstance(ModStatusEffects.OFFERING, Integer.MAX_VALUE));
+                if (Saxophone.contractedPlayers.contains(player.getUuid())) {
+                    player.addStatusEffect(new StatusEffectInstance(ModStatusEffects.OFFERING, Integer.MAX_VALUE));
+                }
             }
         }
         super.onPlaced(world, pos, state, placer, itemStack);

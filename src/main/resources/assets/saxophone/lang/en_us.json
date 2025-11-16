@@ -65,5 +65,7 @@
 
   "death.attack.offering": "%1$s had their existence repurposed",
   "death.attack.offering.player": "%1$s had their existence repurposed",
-  "death.attack.offering.item": "%1$s had their existence repurposed"
+  "death.attack.offering.item": "%1$s had their existence repurposed",
+
+  "block.saxophone.denouement": "Denouement"
 }

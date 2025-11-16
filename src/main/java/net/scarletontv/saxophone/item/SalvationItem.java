@@ -4,6 +4,8 @@ import com.nitron.nitrogen.util.interfaces.ColorableItem;
 import net.acoyt.acornlib.api.item.CustomHitParticleItem;
 import net.acoyt.acornlib.api.util.ParticleUtils;
 import net.acoyt.acornlib.impl.client.particle.SweepParticleEffect;
+import net.fabricmc.fabric.api.item.v1.EnchantingContext;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -13,6 +15,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleUtil;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -72,5 +75,15 @@ public class SalvationItem extends SwordItem implements ColorableItem, CustomHit
             user.getItemCooldownManager().set(this, 1200);
         }
         return super.useOnEntity(stack, user, entity, hand);
+    }
+
+    @Override
+    public int getEnchantability() {
+        return 0;
+    }
+
+    @Override
+    public boolean canBeEnchantedWith(ItemStack stack, RegistryEntry<Enchantment> enchantment, EnchantingContext context) {
+        return false;
     }
 }

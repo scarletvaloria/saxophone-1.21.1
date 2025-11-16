@@ -22,8 +22,8 @@ public class CovetousMonolithBlockEntityRenderer implements BlockEntityRenderer<
                                 Saxophone.MOD_ID,
                                 "textures/render/color.png"))),
                 entity.getPos(),
-                1,
-                50,
+                0.4f,
+                350,
                 1
         );
         matrices.pop();
