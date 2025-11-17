@@ -8,7 +8,8 @@
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "PlayerManagerMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    "StatusEffectUtilMixin"
   ],
   "injectors": {
     "defaultRequire": 1
