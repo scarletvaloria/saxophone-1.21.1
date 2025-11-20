@@ -111,6 +111,12 @@ public class ModItems {
                             .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.4f))
             ));
 
+    public static final Item REVITALIZE = registerItem("revitalize",
+            new RevitalizeItem(
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
 
     // blockitems
     public static final Item MONOLITH_ITEM = registerItem("covetous_monolith",

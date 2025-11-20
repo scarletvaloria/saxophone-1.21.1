@@ -109,13 +109,9 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
     private void yes(CallbackInfo ci) {
         RegistryKey<World> heavenWorldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(Saxophone.MOD_ID, "asphodel"));
         if (this.getWorld().getRegistryKey() == heavenWorldKey) {
-            if (!this.isDead()) {
                 this.getHungerManager().setFoodLevel(20);
                 this.getHungerManager().setSaturationLevel(20);
                 this.setHealth(20);
-            } else {
-                this.requestRespawn();
-            }
         }
     }
 
