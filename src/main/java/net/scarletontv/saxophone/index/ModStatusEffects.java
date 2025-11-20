@@ -6,8 +6,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.scarletontv.saxophone.Saxophone;
-import net.scarletontv.saxophone.effect.OfferingEffect;
 import net.scarletontv.saxophone.effect.InsistenceEffect;
+import net.scarletontv.saxophone.effect.OfferingEffect;
 import net.scarletontv.saxophone.effect.SaxitoxinEffect;
 
 public interface ModStatusEffects {
