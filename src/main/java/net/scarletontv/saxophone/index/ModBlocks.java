@@ -1,9 +1,11 @@
 package net.scarletontv.saxophone.index;
 
 import net.acoyt.acornlib.impl.item.TranslationBlockItem;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -12,6 +14,7 @@ import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.CovetousMonolithBlock;
 import net.scarletontv.saxophone.block.DenouementBlock;
 import net.scarletontv.saxophone.block.HarmfulThoughtBlock;
+import net.scarletontv.saxophone.block.RevitalizationBlock;
 
 import java.util.function.Function;
 
@@ -37,6 +40,11 @@ public interface ModBlocks {
 
     Block DENOUEMENT = create("denouement", DenouementBlock::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
             .sounds(BlockSoundGroup.AMETHYST_BLOCK)
+            .dropsNothing()
+    );
+
+    Block REVITALIZATION = create("revitalization", RevitalizationBlock::new, AbstractBlock.Settings.copy(Blocks.BEDROCK)
+            .sounds(BlockSoundGroup.BONE)
             .dropsNothing()
     );
 

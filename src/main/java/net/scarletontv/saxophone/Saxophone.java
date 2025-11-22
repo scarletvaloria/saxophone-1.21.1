@@ -1,6 +1,7 @@
 package net.scarletontv.saxophone;
 
 import eu.midnightdust.lib.config.MidnightConfig;
+import net.acoyt.acornlib.api.ALib;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
@@ -31,6 +32,9 @@ public class Saxophone implements ModInitializer {
         ModBlocks.registerBlocks();
         ModParticles.registerParticles();
         ModBlockEntities.registerBlockEntities();
+
+        // ALib
+        ALib.registerModMenu(MOD_ID, 0xd70048);
 
         // impl from Phototaxis
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {

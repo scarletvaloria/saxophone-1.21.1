@@ -11,6 +11,7 @@ import net.minecraft.util.Rarity;
 import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.item.CovetousMonolithBlockItem;
 import net.scarletontv.saxophone.block.item.DenouementBlockItem;
+import net.scarletontv.saxophone.block.item.RevitalizationBlockItem;
 import net.scarletontv.saxophone.item.*;
 
 import java.util.function.Function;
@@ -111,13 +112,6 @@ public class ModItems {
                             .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.4f))
             ));
 
-    public static final Item REVITALIZE = registerItem("revitalize",
-            new RevitalizeItem(
-                    new AcornItemSettings()
-                            .maxCount(1)
-            ));
-
-
     // blockitems
     public static final Item MONOLITH_ITEM = registerItem("covetous_monolith",
             new CovetousMonolithBlockItem(
@@ -129,6 +123,13 @@ public class ModItems {
     public static final Item DENOUEMENT_ITEM = registerItem("denouement",
             new DenouementBlockItem(
                     ModBlocks.DENOUEMENT,
+                    new AcornItemSettings()
+                            .maxCount(1)
+            ));
+
+    public static final Item REVI_ITEM = registerItem("revitalization",
+            new RevitalizationBlockItem(
+                    ModBlocks.REVITALIZATION,
                     new AcornItemSettings()
                             .maxCount(1)
             ));
@@ -154,6 +155,8 @@ public class ModItems {
         modifyItemNameColor(Item.fromBlock(ModBlocks.MONOLITH_BLOCK), 0xd70048);
         modifyItemNameColor(Item.fromBlock(ModBlocks.DENOUEMENT), 0xd70048);
         modifyItemNameColor(SALVATION, 0x2cfcf3);
+        modifyItemNameColor(Item.fromBlock(ModBlocks.REVITALIZATION), 0x2cfcf3);
+
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(fabricItemGroupEntries -> {
         fabricItemGroupEntries.addAfter(Items.MUSIC_DISC_PIGSTEP, DARK_SANCTUARY_MUSIC_DISC);

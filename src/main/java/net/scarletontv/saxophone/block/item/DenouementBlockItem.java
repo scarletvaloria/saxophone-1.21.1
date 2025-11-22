@@ -36,5 +36,4 @@ public class DenouementBlockItem extends BlockItem implements ColorableItem {
         tooltip.add(Text.translatable("tooltip.saxophone.denouement_2") .withColor(0x8e1a41).formatted(Formatting.ITALIC));
         super.appendTooltip(stack, context, tooltip, type);
     }
-
 }

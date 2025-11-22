@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "saxophone:block/revi_side",
+    "bottom": "saxophone:block/revi_side",
+    "side": "saxophone:block/revi"
+  }
+}

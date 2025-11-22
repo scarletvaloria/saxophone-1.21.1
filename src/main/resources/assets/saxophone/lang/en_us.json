@@ -68,5 +68,6 @@
   "death.attack.offering.item": "%1$s had their existence repurposed",
 
   "block.saxophone.denouement": "Denouement",
-  "text.effect_name.offering": "Indefinite"
+  "text.effect_name.offering": "Indefinite",
+  "block.saxophone.revitalization": "Revitalization"
 }

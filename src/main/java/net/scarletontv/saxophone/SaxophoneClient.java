@@ -14,6 +14,7 @@ import net.scarletontv.saxophone.block.entity.render.CovetousMonolithBlockEntity
 import net.scarletontv.saxophone.block.entity.render.DenouementBlockEntityRenderer;
 import net.scarletontv.saxophone.entity.ShotgunBulletEntity;
 import net.scarletontv.saxophone.index.ModBlockEntities;
+import net.scarletontv.saxophone.index.ModBlocks;
 import net.scarletontv.saxophone.index.ModEntities;
 import net.scarletontv.saxophone.index.ModParticles;
 import org.joml.Vector3f;
@@ -26,6 +27,7 @@ public class SaxophoneClient implements ClientModInitializer {
     public void onInitializeClient() {
         ModParticles.registerParticlesClient();
         ModEntities.registerEntitiesClient();
+    //    ModBlocks.registerBlocksClient();
         BlockEntityRendererFactories.register(ModBlockEntities.DENOUEMENT, context -> new DenouementBlockEntityRenderer());
         BlockEntityRendererFactories.register(ModBlockEntities.MONOLITH, context -> new CovetousMonolithBlockEntityRenderer());
 
