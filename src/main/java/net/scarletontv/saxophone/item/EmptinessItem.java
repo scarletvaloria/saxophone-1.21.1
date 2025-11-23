@@ -85,7 +85,9 @@ public class EmptinessItem extends SwordItem implements ColorableItem, CustomHit
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (!target.hasStatusEffect(ModStatusEffects.UNRAVELING)) {
-            target.addStatusEffect(new StatusEffectInstance(ModStatusEffects.UNRAVELING, 600));
+            //if (attacker.getHandSwingProgress(1) >= 0.5) {
+                target.addStatusEffect(new StatusEffectInstance(ModStatusEffects.UNRAVELING, 600));
+            //}
         }
         return super.postHit(stack, target, attacker);
     }
