@@ -2,11 +2,15 @@ package net.scarletontv.saxophone.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.nitron.nitrogen.util.interfaces.ScreenShaker;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -18,6 +22,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -26,6 +31,9 @@ import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.index.ModItems;
 import net.scarletontv.saxophone.index.ModParticles;
 import net.scarletontv.saxophone.index.ModSounds;
+import net.scarletontv.saxophone.index.ModStatusEffects;
+import net.scarletontv.saxophone.item.EmptinessItem;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -42,9 +50,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
     public abstract HungerManager getHungerManager();
 
     @Shadow
-    public abstract void requestRespawn();
-
-    @Shadow
     public abstract void playSoundToPlayer(SoundEvent sound, SoundCategory category, float volume, float pitch);
 
     @Shadow
@@ -52,6 +57,10 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
 
     @Shadow
     public abstract boolean isInCreativeMode();
+
+    @Shadow
+    @Final
+    private PlayerInventory inventory;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -109,9 +118,9 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ScreenSh
     private void yes(CallbackInfo ci) {
         RegistryKey<World> heavenWorldKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(Saxophone.MOD_ID, "asphodel"));
         if (this.getWorld().getRegistryKey() == heavenWorldKey) {
-                this.getHungerManager().setFoodLevel(20);
-                this.getHungerManager().setSaturationLevel(20);
-                this.setHealth(20);
+            this.getHungerManager().setFoodLevel(20);
+            this.getHungerManager().setSaturationLevel(20);
+            this.setHealth(20);
         }
     }
 

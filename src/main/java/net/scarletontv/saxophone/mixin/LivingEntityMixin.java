@@ -24,12 +24,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Attackable {
-    @Shadow
-    public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
-
-    @Shadow
-    public abstract boolean addStatusEffect(StatusEffectInstance effect);
-
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }

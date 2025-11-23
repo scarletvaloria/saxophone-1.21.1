@@ -39,6 +39,11 @@ public interface ModDamageTypes {
     static DamageSource offering(Entity entity) {
         return entity.getDamageSources().create(OFFERING); }
 
+    RegistryKey<DamageType> EMPTINESS_KILL = of("emptiness_kill");
+
+    static DamageSource emptiness_kill(Entity entity) {
+        return entity.getDamageSources().create(EMPTINESS_KILL); }
+
     private static RegistryKey<DamageType> of(String name) {
         return RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Saxophone.id(name));
     }

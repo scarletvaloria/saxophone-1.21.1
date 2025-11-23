@@ -25,15 +25,8 @@ public abstract class AbstractInventoryScreenMixin<T extends ScreenHandler> exte
 
     @Inject(method = "drawStatusEffectDescriptions", at = @At("HEAD"), cancellable = true)
     private void saxophone$sillyLittleThingieAboutKillingManyInnocentHumanBeings(DrawContext context, int x, int y, Iterable<StatusEffectInstance> statusEffects, CallbackInfo ci) {
-        int i = this.y;
-        boolean hasEffect = StreamSupport.stream(statusEffects.spliterator(), false).anyMatch(statusEffectInstance -> statusEffectInstance.equals(ModStatusEffects.OFFERING));
-        if (hasEffect) {
-            context.drawTextWithShadow(this.textRenderer, Text.translatable("effect.silly").formatted(Formatting.ITALIC), x + 28, i + 6, 0xEA4A7A);
-            i += y;
-            ci.cancel();
-        }
+
 
         // x + 10 + 18, i + 6
     }
-
 }

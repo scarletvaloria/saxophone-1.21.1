@@ -20,6 +20,7 @@
   "client": [
     "client.AbstractSoundInstanceMixin",
     "client.ArmorFeatureRendererMixin",
+    "client.DebugHudMixin",
     "client.InGameHudMixin",
     "client.PlayerEntityRendererMixin",
     "client.PlayerListHudMixin"
