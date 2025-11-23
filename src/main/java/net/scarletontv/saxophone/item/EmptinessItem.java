@@ -82,9 +82,8 @@ public class EmptinessItem extends SwordItem implements ColorableItem, CustomHit
 
     @Override
     public void playHitSound(PlayerEntity playerEntity) {
-        playerEntity.playSound(SoundEvents.BLOCK_BEACON_POWER_SELECT);
-        playerEntity.playSound(SoundEvents.BLOCK_GLASS_HIT);
-        playerEntity.playSound(SoundEvents.ENTITY_DROWNED_HURT);
+        playerEntity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 1, 0.25f);
+        playerEntity.playSound(SoundEvents.ENTITY_WARDEN_HEARTBEAT, 1, 1f);
     }
 
     @Override
