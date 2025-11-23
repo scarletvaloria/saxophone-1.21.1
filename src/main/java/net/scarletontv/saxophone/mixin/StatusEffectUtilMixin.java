@@ -12,9 +12,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(StatusEffectUtil.class)
 public abstract class StatusEffectUtilMixin {
     @Inject(method = "getDurationText", at = @At("HEAD"), cancellable = true)
-    private static void saxophone$overriteAGAIN(StatusEffectInstance effect, float multiplier, float tickRate, CallbackInfoReturnable<Text> cir) {
+    private static void saxophone$overwriteAGAIN(StatusEffectInstance effect, float multiplier, float tickRate, CallbackInfoReturnable<Text> cir) {
         if (effect.getEffectType().equals(ModStatusEffects.OFFERING)) {
             cir.setReturnValue(Text.translatable("text.effect_name.offering"));
+        }
+        if (effect.getEffectType().equals(ModStatusEffects.UNRAVELING)) {
+            cir.setReturnValue(Text.translatable("text.effect_name.unraveling"));
         }
     }
 }

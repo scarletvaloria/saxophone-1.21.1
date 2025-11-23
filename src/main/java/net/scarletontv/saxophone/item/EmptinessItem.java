@@ -39,10 +39,6 @@ public class EmptinessItem extends SwordItem implements ColorableItem, CustomHit
         super.appendTooltip(stack, context, tooltip, type);
     }
 
-
-
-
-
     @Override
     public int startColor(ItemStack itemStack) {
         return 0xFFff6eff;
@@ -58,7 +54,7 @@ public class EmptinessItem extends SwordItem implements ColorableItem, CustomHit
         return 0xF0170317;
     }
 
-    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0xff6eff, 0x000000)};
+    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0x000000, 0xff6eff)};
 
     public void spawnHitParticles(PlayerEntity player) {
         double deltaX = -MathHelper.sin((float) (player.getYaw() * (Math.PI / 180.0F)));

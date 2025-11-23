@@ -117,7 +117,7 @@ public class ModItems {
                     ToolMaterials.NETHERITE,
                     new AcornItemSettings()
                             .maxCount(1)
-                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.4f))
+                            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.6f))
             ));
 
     // blockitems

@@ -106,4 +106,19 @@ public class InGameHudMixin {
             }
         }
     }
+
+    @Inject(method = "renderChat", at = @At("HEAD"), cancellable = true)
+    private void saxo$disableChat(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
+        PlayerEntity player = MinecraftClient.getInstance().player;
+        int sum = 0;
+        if (player != null) {
+            if (player.hasStatusEffect(ModStatusEffects.UNRAVELING)) {
+                ci.cancel();
+                for (int i = 1; i <= 25; i++) {
+                    sum += 5;
+                    context.drawTextWithShadow(MinecraftClient.getInstance().textRenderer, Text.translatable("text.unraveled.chat"), 5, sum, 0xFF00FF);
+                }
+            }
+        }
+    }
 }

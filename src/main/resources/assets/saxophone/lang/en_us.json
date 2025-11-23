@@ -72,5 +72,8 @@
   "tooltip.saxophone.monolith_2": "and a gift for those unwilling to go further.",
   "tooltip.saxophone.monolith_3": "You know what you've done.",
   "tooltip.saxophone.obituary.authority_1": "An artifact which contains immense mystical power",
-  "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice"
+  "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice",
+  "text.unraveled.chat": "ERROR",
+  "effect.saxophone.unraveling": "Unraveling",
+  "text.effect_name.unraveling": "Class not found: UNRAVELING_DURATION"
 }

@@ -79,5 +79,11 @@ public class Saxophone implements ModInitializer {
 
         /// Xzone
         contractedPlayers.add(UUID.fromString("1df5e0ee-58ba-4240-9319-dee22c9d0196"));
+
+        ///  creature
+        contractedPlayers.add(UUID.fromString("f2148c0e-709b-4fcd-a671-8261d2d4a0e2"));
+
+        ///  duck
+        contractedPlayers.add(UUID.fromString("44d25fd1-c587-4db8-8e43-8fd1401e4ddc"));
     }
 }
