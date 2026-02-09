@@ -14,23 +14,6 @@ import net.scarletontv.saxophone.entity.ForsakenCharterEntity;
 import net.scarletontv.saxophone.entity.ShotgunBulletEntity;
 
 public interface ModEntities {
-
-//    EntityType<PylonEntity> PYLON = create(
-//            "pylon",
-//            EntityType.Builder.create(
-//                    PylonEntity::new,
-//                    SpawnGroup.MISC
-//            ).dimensions(0.3f, 0.8f)
-//    );
-//
-//    EntityType<MonolithEntity> MONOLITH = create(
-//            "monolith",
-//            EntityType.Builder.create(
-//                    MonolithEntity::new,
-//                    SpawnGroup.MISC
-//            ).dimensions(0.6f, 0.6f)
-//    );
-
     EntityType<ForsakenCharterEntity> FORSAKEN_CHARTER = create(
             "forsaken_charter",
             EntityType.Builder.create(

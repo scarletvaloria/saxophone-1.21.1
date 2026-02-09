@@ -31,37 +31,34 @@ import net.scarletontv.saxophone.index.ModSounds;
 import java.util.List;
 
 public class LiberationItem extends SwordItem implements  ColorableItem, CustomKillSourceItem, CustomHitSoundItem, CustomHitParticleItem, KillEffectItem {
+    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0xd70048, 0x0c0105)};
+
     public LiberationItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
     }
 
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.saxophone.liberation.tooltip") .withColor(0x8e1a41));
         super.appendTooltip(stack, context, tooltip, type);
     }
 
-    @Override
     public void playHitSound(PlayerEntity playerEntity) {
-        playerEntity.playSound(ModSounds.SCYTHE_SWING);
+        playerEntity.playSound(ModSounds.SCYTHE_SWING); // add a randomized pitch so the sound isn't static and yucky
     }
 
-    @Override
     public int getEnchantability() {
         return 0;
     }
 
-    @Override
     public boolean isEnchantable(ItemStack stack) {
         return false;
     }
 
-    @Override
+    // to be unenchantable, don't extend SwordItem. Just extend Item.
+
     public DamageSource getKillSource(LivingEntity livingEntity) {
         return ModDamageTypes.scythe_kill(livingEntity);
     }
-
-    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0xd70048, 0x0c0105)};
 
     public void spawnHitParticles(PlayerEntity player) {
         double deltaX = -MathHelper.sin((float) (player.getYaw() * (Math.PI / 180.0F)));
@@ -78,27 +75,20 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
         }
     }
 
-    @Override
     public void killEntity(World world, ItemStack itemStack, LivingEntity livingEntity, LivingEntity victim) {
         if (world instanceof ServerWorld serverWorld) {
             serverWorld.spawnParticles(ParticleTypes.RAID_OMEN, victim.getX(), victim.getY(), victim.getZ(), 75, 0.1, 4, 0.1, 0.02);
         }
     }
 
-    @Environment(EnvType.CLIENT)
-    @Override
     public int startColor(ItemStack itemStack) {
         return 0xFFd70048;
     }
 
-    @Environment(EnvType.CLIENT)
-    @Override
     public int endColor(ItemStack itemStack) {
         return 0xFF8e1a41;
     }
 
-    @Environment(EnvType.CLIENT)
-    @Override
     public int backgroundColor(ItemStack itemStack) {
         return 0xF01c0810;
     }
@@ -121,9 +111,5 @@ public class LiberationItem extends SwordItem implements  ColorableItem, CustomK
                         AttributeModifierSlot.MAINHAND
                 )
                 .build();
-    }
-
-
+        }
 }
-
-

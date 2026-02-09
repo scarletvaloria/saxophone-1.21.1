@@ -24,32 +24,19 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class SalvationItem extends SwordItem implements ColorableItem, CustomHitParticleItem {
+    public int startColor(ItemStack itemStack) {return 0xFF2cfcf3;}
+    public int endColor(ItemStack itemStack) {return 0xFF1b8d89;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF00f1c1c;}
+    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0x1b8d89, 0x101010)};
+    
     public SalvationItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
     }
 
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("item.saxophone.salvation.desc") .withColor(0x23bab3));
         super.appendTooltip(stack, context, tooltip, type);
     }
-
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFF2cfcf3;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF1b8d89;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF00f1c1c;
-    }
-
-    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0x1b8d89, 0x101010)};
 
     public void spawnHitParticles(PlayerEntity player) {
         double deltaX = -MathHelper.sin((float) (player.getYaw() * (Math.PI / 180.0F)));
@@ -66,7 +53,6 @@ public class SalvationItem extends SwordItem implements ColorableItem, CustomHit
         }
     }
 
-    @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if (!user.getItemCooldownManager().isCoolingDown(this)) {
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 300));
@@ -75,12 +61,10 @@ public class SalvationItem extends SwordItem implements ColorableItem, CustomHit
         return super.useOnEntity(stack, user, entity, hand);
     }
 
-    @Override
     public int getEnchantability() {
         return 0;
     }
 
-    @Override
     public boolean canBeEnchantedWith(ItemStack stack, RegistryEntry<Enchantment> enchantment, EnchantingContext context) {
         return false;
     }

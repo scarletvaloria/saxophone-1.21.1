@@ -7,22 +7,11 @@ import net.minecraft.util.Identifier;
 import net.scarletontv.saxophone.Saxophone;
 
 public class InsistenceEffect extends StatusEffect implements StatusEffectBackground {
+    public Identifier smallInventorySprite() {return Saxophone.id("container/inventory/insis_bg_small");}
+    public Identifier largeInventorySprite() {return Saxophone.id("container/inventory/insis_bg_large");}
+    public Identifier hudSprite() {return Saxophone.id("hud/insis_bg");}
+
     public InsistenceEffect(StatusEffectCategory category, int color) {
         super(category, color);
-    }
-
-    @Override
-    public Identifier smallInventorySprite() {
-        return Identifier.of(Saxophone.MOD_ID, "container/inventory/insis_bg_small");
-    }
-
-    @Override
-    public Identifier largeInventorySprite() {
-        return Identifier.of(Saxophone.MOD_ID, "container/inventory/insis_bg_large");
-    }
-
-    @Override
-    public Identifier hudSprite() {
-        return Identifier.of(Saxophone.MOD_ID, "hud/insis_bg");
     }
 }

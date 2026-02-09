@@ -9,26 +9,14 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class AuthoritysObituaryItem extends Item implements ColorableItem {
+    public int startColor(ItemStack itemStack) {return 0xFFd70048;}
+    public int endColor(ItemStack itemStack) {return 0xFF8e1a41;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF01c0810;}
+
     public AuthoritysObituaryItem(Settings settings) {
         super(settings);
     }
 
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFFd70048;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF8e1a41;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF01c0810;
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.saxophone.obituary.authority_1") .withColor(0x8e1a41));
         tooltip.add(Text.translatable("tooltip.saxophone.obituary.authority_2") .withColor(0x8e1a41));

@@ -26,7 +26,6 @@ public class RevitalizationBlock extends Block {
         super(settings);
     }
 
-    @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         MinecraftServer server = world.getServer();
         if (server != null) {
@@ -69,7 +68,6 @@ public class RevitalizationBlock extends Block {
                 }
             }
         }
-
         super.onPlaced(world, pos, state, placer, itemStack);
     }
 }

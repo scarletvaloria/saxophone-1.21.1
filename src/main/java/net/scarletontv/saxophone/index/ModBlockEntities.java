@@ -27,8 +27,6 @@ public interface ModBlockEntities {
             .addBlocks(ModBlocks.MONOLITH_BLOCK)
             .build());
 
-
-
     private static <T extends BlockEntity> BlockEntityType<T> create(String name, BlockEntityType<T> blockEntity) {
         BLOCK_ENTITIES.put(blockEntity, Saxophone.id(name));
         return blockEntity;

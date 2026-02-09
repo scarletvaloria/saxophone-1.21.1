@@ -20,10 +20,10 @@ public class Saxophone implements ModInitializer {
     public static Identifier id (String path){
         return Identifier.of(MOD_ID, path); }
 
+    // should be in a util class
     public static final ArrayList<UUID> avarice = new ArrayList<>();
     public static final ArrayList<UUID> contractedPlayers = new ArrayList<>();
 
-    @Override
     public void onInitialize() {
         ModItems.registerModItems();
         ModSounds.registerSounds();
@@ -38,7 +38,7 @@ public class Saxophone implements ModInitializer {
 
         // impl from Phototaxis
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            SaxophoneItemGroups.initialize();
+            SaxophoneItemGroups.registerItemGroups();
         }
 
         MidnightConfig.init(MOD_ID, SaxophoneConfig.class);
@@ -85,5 +85,12 @@ public class Saxophone implements ModInitializer {
 
         ///  duck
         contractedPlayers.add(UUID.fromString("44d25fd1-c587-4db8-8e43-8fd1401e4ddc"));
+
+
+        // protip:
+        /*
+    never hardcode lists like this. Instead, from the beginning, make an updating list, then have an item add UUIDs to that list.
+
+        */
     }
 }

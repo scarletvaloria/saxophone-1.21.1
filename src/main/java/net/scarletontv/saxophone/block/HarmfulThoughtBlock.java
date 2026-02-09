@@ -14,7 +14,6 @@ public class HarmfulThoughtBlock extends Block {
         super(settings);
     }
 
-    @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if (entity instanceof PlayerEntity player) {
             if (!player.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack()) || !Saxophone.avarice.contains(player.getUuid())) {

@@ -19,13 +19,11 @@ public class ModSounds {
 
     public static final SoundEvent AMBIENCE_ASPHODEL = registerSoundEvent("ambience_asphodel");
 
-
     public static final SoundEvent EXECUTION = registerSoundEvent("execution");
     public static final SoundEvent BELL_TOLL = registerSoundEvent("bell_toll");
 
     public static final SoundEvent SHOTGUN_SHOT = registerSoundEvent("shotgun_shot");
     public static final SoundEvent SHOTGUN_RELOAD = registerSoundEvent("shotgun_reload");
-
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(Saxophone.MOD_ID, name);

@@ -48,4 +48,3 @@ public interface ModDamageTypes {
         return RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Saxophone.id(name));
     }
 }
-

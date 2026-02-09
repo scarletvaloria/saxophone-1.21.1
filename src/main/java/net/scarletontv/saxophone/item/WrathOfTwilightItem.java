@@ -27,26 +27,15 @@ import net.scarletontv.saxophone.index.ModDamageTypes;
 import net.scarletontv.saxophone.index.ModStatusEffects;
 
 public class WrathOfTwilightItem extends SwordItem implements ColorableItem, CustomHitSoundItem, CustomHitParticleItem, CustomKillSourceItem {
+    public int startColor(ItemStack itemStack) {return 0xFFd70048;}
+    public int endColor(ItemStack itemStack) {return 0xFF8e1a41;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF01c0810;}
+
+    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0xd70048, 0x0c0105)};
+
     public WrathOfTwilightItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
     }
-
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFFd70048;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF8e1a41;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF01c0810;
-    }
-
-    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0xd70048, 0x0c0105)};
 
     public void spawnHitParticles(PlayerEntity player) {
         double deltaX = -MathHelper.sin((float) (player.getYaw() * (Math.PI / 180.0F)));
@@ -63,12 +52,10 @@ public class WrathOfTwilightItem extends SwordItem implements ColorableItem, Cus
         }
     }
 
-    @Override
     public void playHitSound(PlayerEntity playerEntity) {
         playerEntity.playSound(SoundEvents.BLOCK_CHAIN_HIT);
     }
 
-    @Override
     public DamageSource getKillSource(LivingEntity livingEntity) {
         return ModDamageTypes.rapier_kill(livingEntity);
     }
@@ -93,7 +80,6 @@ public class WrathOfTwilightItem extends SwordItem implements ColorableItem, Cus
                 .build();
     }
 
-    @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if (!user.getItemCooldownManager().isCoolingDown(this)) {
             entity.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 200));

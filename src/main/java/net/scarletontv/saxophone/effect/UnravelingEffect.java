@@ -7,22 +7,11 @@ import net.minecraft.util.Identifier;
 import net.scarletontv.saxophone.Saxophone;
 
 public class UnravelingEffect extends StatusEffect implements StatusEffectBackground {
+    public Identifier smallInventorySprite() {return Saxophone.id("a");}
+    public Identifier largeInventorySprite() {return Saxophone.id("a");}
+    public Identifier hudSprite() {return Saxophone.id("a");}
+
     public UnravelingEffect(StatusEffectCategory category, int color) {
         super(category, color);
-    }
-
-    @Override
-    public Identifier smallInventorySprite() {
-        return Saxophone.id("a");
-    }
-
-    @Override
-    public Identifier largeInventorySprite() {
-        return Saxophone.id("a");
-    }
-
-    @Override
-    public Identifier hudSprite() {
-        return Saxophone.id("a");
     }
 }

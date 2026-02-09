@@ -30,11 +30,16 @@ import net.scarletontv.saxophone.index.ModStatusEffects;
 import java.util.List;
 
 public class BulwarkItem extends Item implements ColorableItem, CustomHitSoundItem {
+    public int startColor(ItemStack itemStack) {return 0xFF49b968;}
+    public int endColor(ItemStack itemStack) {return 0xFF2a3637;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF0060b0c;}
+
+    public static int ammo = 6;
+    // due to taking place in 1.21.1, you can use a DataComponent Integer instead of this. This number is hardcoded, and affects EVERY instance of Bulwark, along with breaking Server-Side.
+    // In versions pre 1.21.1, use an Item Component with an Integer instead (CCA MY BELOVED).
     public BulwarkItem(Settings settings) {
         super(settings);
     }
-
-    public static int ammo = 6;
 
     public static AttributeModifiersComponent createAttributeModifiers() {
         return AttributeModifiersComponent.builder()
@@ -56,10 +61,9 @@ public class BulwarkItem extends Item implements ColorableItem, CustomHitSoundIt
                 .build();
     }
 
-    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (ammo != 0) {
-            if (world instanceof ServerWorld serverWorld) {
+            if (world instanceof ServerWorld serverWorld) { // spawns entity both client and serverside
                 if (user.getMainHandStack().isOf(this)) {
                         for (int i = 0; i < 3; i++) {
                             ShotgunBulletEntity bullet = new ShotgunBulletEntity(ModEntities.BULLET, serverWorld);
@@ -103,22 +107,6 @@ public class BulwarkItem extends Item implements ColorableItem, CustomHitSoundIt
         return super.use(world, user, hand);
     }
 
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFF49b968;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF2a3637;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF0060b0c;
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("item.saxophone.bulwark.desc_1") .withColor(0x254e36).formatted(Formatting.ITALIC));
         tooltip.add(Text.translatable("item.saxophone.bulwark.desc_2") .withColor(0x254e36).formatted(Formatting.ITALIC));
@@ -126,12 +114,10 @@ public class BulwarkItem extends Item implements ColorableItem, CustomHitSoundIt
         super.appendTooltip(stack, context, tooltip, type);
     }
 
-    @Override
     public void playHitSound(PlayerEntity playerEntity) {
         playerEntity.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1, -1);
     }
 
-    @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker.isSneaking()) {
             target.addStatusEffect(new StatusEffectInstance(ModStatusEffects.SAXITOXIN, 200));

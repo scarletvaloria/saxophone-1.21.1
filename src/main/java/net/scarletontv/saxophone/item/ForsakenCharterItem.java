@@ -18,27 +18,16 @@ import net.scarletontv.saxophone.index.ModEntities;
 import java.util.List;
 
 public class ForsakenCharterItem extends Item implements ColorableItem {
+    public int startColor(ItemStack itemStack) {return 0xFFd70048;}
+    public int endColor(ItemStack itemStack) {return 0xFF8e1a41;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF01c0810;}
+
+    // just use one class for the tooltip colors, since they never change. Name it "MiscSaxophoneItem" and implement ColorableItem, then do this
+
     public ForsakenCharterItem(Settings settings) {
         super(settings);
     }
 
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFFd70048;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF8e1a41;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF01c0810;
-    }
-
-
-    @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         // var
         World world = context.getWorld();
@@ -61,7 +50,6 @@ public class ForsakenCharterItem extends Item implements ColorableItem {
         return super.useOnBlock(context);
     }
 
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.saxophone.charter_1") .withColor(0x8e1a41));
         tooltip.add(Text.translatable("tooltip.saxophone.charter_2") .withColor(0x8e1a41));

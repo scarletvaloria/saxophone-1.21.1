@@ -25,37 +25,22 @@ import net.scarletontv.saxophone.index.ModParticles;
 import java.util.List;
 
 public class MartyrdomItem extends AxeItem implements ColorableItem, KillEffectItem, CustomKillSourceItem {
+    public int startColor(ItemStack itemStack) {return 0xFFd70048;}
+    public int endColor(ItemStack itemStack) {return 0xFF8e1a41;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF01c0810;}
+    
     public MartyrdomItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
     }
 
-
-    @Override
     public boolean isEnchantable(ItemStack stack) {
         return false;
     }
 
-    @Override
     public int getEnchantability() {
         return 0;
     }
 
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFFd70048;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF8e1a41;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF01c0810;
-    }
-
-    @Override
     public void killEntity(World world, ItemStack itemStack, LivingEntity user, LivingEntity victim) {
         if (victim instanceof ServerPlayerEntity serverPlayerEntity) {
             teleportToPurgatory(serverPlayerEntity);
@@ -99,12 +84,10 @@ public class MartyrdomItem extends AxeItem implements ColorableItem, KillEffectI
         }
     }
 
-    @Override
     public DamageSource getKillSource(LivingEntity livingEntity) {
         return ModDamageTypes.martyrdom_kill(livingEntity);
     }
 
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.saxophone.martyr_1").withColor(0x8e1a41));
         tooltip.add(Text.translatable("tooltip.saxophone.martyr_2").withColor(0x8e1a41));

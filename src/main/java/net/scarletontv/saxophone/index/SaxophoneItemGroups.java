@@ -19,10 +19,9 @@ public interface SaxophoneItemGroups {
             .displayName(Text.translatable("itemgroup.saxophone"))
             .build();
 
-    static void initialize() {
+    static void registerItemGroups() {
         Registry.register(Registries.ITEM_GROUP, GROUP_KEY, A_GROUP);
         ItemGroupEvents.modifyEntriesEvent(GROUP_KEY).register(SaxophoneItemGroups::addEntries);
-
     }
 
     private static void addEntries(FabricItemGroupEntries itemGroup) {

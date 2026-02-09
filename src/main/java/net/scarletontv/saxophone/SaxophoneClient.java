@@ -23,11 +23,13 @@ import java.util.*;
 
 public class SaxophoneClient implements ClientModInitializer {
     private static final Map<UUID, Deque<Vec3d>> TRAILS = new HashMap<>();
-    @Override
+    
     public void onInitializeClient() {
         ModParticles.registerParticlesClient();
         ModEntities.registerEntitiesClient();
     //    ModBlocks.registerBlocksClient();
+
+    // block entity renderers should be registered in the BlockEntities registry client initalization
         BlockEntityRendererFactories.register(ModBlockEntities.DENOUEMENT, context -> new DenouementBlockEntityRenderer());
         BlockEntityRendererFactories.register(ModBlockEntities.MONOLITH, context -> new CovetousMonolithBlockEntityRenderer());
 

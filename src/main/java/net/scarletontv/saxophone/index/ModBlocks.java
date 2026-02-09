@@ -59,6 +59,5 @@ public interface ModBlocks {
         return block;
     }
 
-    static void registerBlocks() {
-    }
+    static void registerBlocks() {}
 }

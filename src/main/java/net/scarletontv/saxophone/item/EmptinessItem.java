@@ -26,35 +26,22 @@ import net.scarletontv.saxophone.index.ModStatusEffects;
 import java.util.List;
 
 public class EmptinessItem extends SwordItem implements ColorableItem, CustomHitParticleItem, CustomKillSourceItem, CustomHitSoundItem {
+    public int startColor(ItemStack itemStack) {return 0xFFff6eff;}
+    public int endColor(ItemStack itemStack) {return 0xFF7e087e;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF0170317;}
+
+    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0x000000, 0xff6eff)};
+
     public EmptinessItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
     }
 
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("lore.emptiness_1").formatted(Formatting.DARK_PURPLE));
         tooltip.add(Text.translatable("lore.emptiness_2").formatted(Formatting.DARK_PURPLE));
         tooltip.add(Text.translatable("lore.emptiness_3").formatted(Formatting.DARK_PURPLE).formatted(Formatting.OBFUSCATED).formatted(Formatting.ITALIC));
-
         super.appendTooltip(stack, context, tooltip, type);
     }
-
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFFff6eff;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF7e087e;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF0170317;
-    }
-
-    public static final SweepParticleEffect[] EFFECTS = new SweepParticleEffect[]{new SweepParticleEffect(0x000000, 0xff6eff)};
 
     public void spawnHitParticles(PlayerEntity player) {
         double deltaX = -MathHelper.sin((float) (player.getYaw() * (Math.PI / 180.0F)));
@@ -71,18 +58,15 @@ public class EmptinessItem extends SwordItem implements ColorableItem, CustomHit
         }
     }
 
-    @Override
     public DamageSource getKillSource(LivingEntity livingEntity) {
         return ModDamageTypes.emptiness_kill(livingEntity);
     }
 
-    @Override
     public void playHitSound(PlayerEntity playerEntity) {
         playerEntity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 1, 0.25f);
         playerEntity.playSound(SoundEvents.ENTITY_WARDEN_HEARTBEAT, 1, 1f);
     }
 
-    @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (!target.hasStatusEffect(ModStatusEffects.UNRAVELING)) {
             //if (attacker.getHandSwingProgress(1) >= 0.5) {

@@ -22,27 +22,21 @@ import java.util.Collection;
 
 public class DenouementBlock extends BlockWithEntity {
     public static final MapCodec<DenouementBlock> CODEC = createCodec(DenouementBlock::new);
+    protected MapCodec<? extends BlockWithEntity> getCodec() {return CODEC;}
+
+    public int timer = 30;
     public DenouementBlock(Settings settings) {
         super(settings);
     }
-    public int timer = 30;
 
-    @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return CODEC;
-    }
-
-    @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new DenouementBlockEntity(pos, state);
     }
 
-    @Override
     protected BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
 
-    @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         MinecraftServer server = world.getServer();
 

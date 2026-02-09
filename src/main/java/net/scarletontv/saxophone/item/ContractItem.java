@@ -20,12 +20,14 @@ import net.scarletontv.saxophone.index.ModStatusEffects;
 import java.util.List;
 
 public class ContractItem extends Item implements ColorableItem {
+    public int startColor(ItemStack itemStack) {return 0xFFd70048;}
+    public int endColor(ItemStack itemStack) {return 0xFF8e1a41;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF01c0810;}
+
     public ContractItem(Settings settings) {
         super(settings);
     }
 
-
-    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if (user.isSneaking()) {
@@ -39,11 +41,10 @@ public class ContractItem extends Item implements ColorableItem {
         return super.use(world, user, hand);
     }
 
-    @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (stack.isOf(ModItems.SIGNED_CONTRACT)) {
             if (!target.hasStatusEffect(ModStatusEffects.INSISTENCE)) {
-                target.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 999999999, 0, true, false, false));
+                target.addStatusEffect(new StatusEffectInstance(ModStatusEffects.INSISTENCE, 999999999, 0, true, false, false)); // instead of a bunch of 9s, use Integer.MAX_VALUE instead.
             }
             if (target.hasStatusEffect(ModStatusEffects.INSISTENCE)) {
                 target.removeStatusEffect(ModStatusEffects.INSISTENCE);
@@ -52,25 +53,6 @@ public class ContractItem extends Item implements ColorableItem {
         return super.postHit(stack, target, attacker);
     }
 
-    @Environment(EnvType.CLIENT)
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFFd70048;
-    }
-
-    @Environment(EnvType.CLIENT)
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF8e1a41;
-    }
-
-    @Environment(EnvType.CLIENT)
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF01c0810;
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (stack.isOf(ModItems.CONTRACT)) {
             tooltip.add(Text.translatable("item.saxophone.contract_unsigned").withColor(0x8e1a41));

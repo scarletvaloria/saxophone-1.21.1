@@ -35,28 +35,22 @@ import java.util.List;
 
 public class CovetousMonolithBlock extends BlockWithEntity {
     public static final MapCodec<CovetousMonolithBlock> CODEC = createCodec(CovetousMonolithBlock::new);
+    protected MapCodec<? extends BlockWithEntity> getCodec() {return CODEC;}
+
+    public int timer = SaxophoneConfig.monolithTicks; // put in BlockEntity so multiple can exist at once
+
     public CovetousMonolithBlock(Settings settings) {
         super(settings);
     }
 
-    @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return CODEC;
-    }
-
-    @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new CovetousMonolithBlockEntity(pos, state);
     }
 
-    @Override
     protected BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
 
-    public int timer = SaxophoneConfig.monolithTicks;
-
-    @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if (placer != null) {
             world.scheduleBlockTick(pos, this, 30);
@@ -65,7 +59,6 @@ public class CovetousMonolithBlock extends BlockWithEntity {
         super.onPlaced(world, pos, state, placer, itemStack);
     }
 
-    @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (timer == 0) {
             world.setBlockState(pos, Blocks.AIR.getDefaultState());
@@ -156,6 +149,4 @@ public class CovetousMonolithBlock extends BlockWithEntity {
             Saxophone.LOGGER.error("Could not find asphodel dimension!");
         }
     }
-
-
 }

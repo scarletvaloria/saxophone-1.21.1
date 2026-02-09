@@ -26,22 +26,10 @@ public class ForsakenCharterEntity extends Entity {
         super(type, world);
     }
 
-    @Override
-    protected void initDataTracker(DataTracker.Builder builder) {
+    protected void initDataTracker(DataTracker.Builder builder) {}
+    protected void readCustomDataFromNbt(NbtCompound nbt) {}
+    protected void writeCustomDataToNbt(NbtCompound nbt) {}
 
-    }
-
-    @Override
-    protected void readCustomDataFromNbt(NbtCompound nbt) {
-
-    }
-
-    @Override
-    protected void writeCustomDataToNbt(NbtCompound nbt) {
-
-    }
-
-    @Override
     public void tick() {
         if (getWorld() instanceof ServerWorld serverWorld) {
             serverWorld.spawnParticles(ModParticles.FOLLY,
@@ -74,7 +62,6 @@ public class ForsakenCharterEntity extends Entity {
         super.tick();
     }
 
-    @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
         if (Saxophone.avarice.contains(player.getUuid()) || player.getInventory().contains(ModItems.DEIFIC_WARRANT.getDefaultStack())) {
             if (player.isSneaking()) {
