@@ -3,13 +3,13 @@
   "id": "saxophone",
   "version": "${version}",
   "name": "Saxophone",
-  "description": "The consequences of your actions.",
+  "description": "The consequences of your actions. Private mod made for Basically Content SMP season 7.",
   "authors": [
     "ScarletOnTV",
     "Chemthunder"
   ],
   "contributors": [
-    "KrimsonCinder - Textures",
+    "KindlingCinder - Textures",
     "AcoYT - Code Help"
   ],
   "license": "MIT",
