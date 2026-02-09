@@ -1,10 +1,20 @@
 {
   "attempt.pickup.charter.fail": "You are not worthy of such things.",
-  "block.saxophone.clouded_thought": "Clouded Thought",
+  "text.effect_name.offering": "Indefinite",
+  "text.effect_name.unraveling": "Class not found: UNRAVELING_DURATION"
+  "text.unraveled.chat": "ERROR",
+  "playername.saxo": "Avarice",
+  
   "block.saxophone.covetous_monolith": "Covetous Monolith",
+  "tooltip.saxophone.monolith_1": "A forsaken artifact created as the mercy of a god,",
+  "tooltip.saxophone.monolith_2": "and a gift for those unwilling to go further.",
+  "tooltip.saxophone.monolith_3": "You know what you've done.",
+  
   "block.saxophone.denouement": "Denouement",
   "block.saxophone.harmful_thought": "Harmful Thought",
+  "block.saxophone.clouded_thought": "Clouded Thought",
   "block.saxophone.revitalization": "Revitalization",
+  
   "death.absolved.monolith": "%1$s was the next step forwards to the Renewal",
   "death.attack.avarice_damage": "%1$s was liberated",
   "death.attack.avarice_damage.player": "%1$s was liberated",
@@ -24,56 +34,66 @@
   "death.attack.saxitoxin": "%1$s's organs failed",
   "death.attack.saxitoxin.item": "%1$s's organs failed whilst fighting %2$s using %3$s",
   "death.attack.saxitoxin.player": "%1$s's organs failed whilst fighting %2$s",
+  
   "effect.saxophone.insistence": "Insistence",
   "effect.saxophone.offering": "Offering",
   "effect.saxophone.saxitoxin": "Saxitoxin",
+  "effect.saxophone.unraveling": "Unraveling",
+
+  "item.saxophone.wrath_of_twilight": "Wrath of Twilight",
+  
   "item.saxophone.authoritys_obituary": "Authority's Obituary",
+  "tooltip.saxophone.obituary.authority_1": "An artifact which contains immense mystical power",
+  "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice",
+  
   "item.saxophone.avaritias_mask": "Her Mask",
   "item.saxophone.avaritias_mask.desc": "A sickly, disgusting mask worn by a mockery of god.",
+  
   "item.saxophone.bulwark": "Bulwark",
   "item.saxophone.bulwark.desc_1": "A weapon for a formidable arms dealer.",
   "item.saxophone.bulwark.desc_2": "Engraved in it are etchings of times long past:",
   "item.saxophone.bulwark.desc_3": "Of a Hostess and a Vessel.",
+  
   "item.saxophone.contract": "Contract",
   "item.saxophone.contract_signed": "Contract",
   "item.saxophone.contract_signed_0": "Signed by a bastard.",
   "item.saxophone.contract_signed_1": "May they serve as an example.",
   "item.saxophone.contract_unsigned": "Unsigned",
+  
   "item.saxophone.dark_sanctuary_music_disc": "Music Disc",
   "item.saxophone.dark_sanctuary_music_disc.desc": "Toby Fox - Dark Sanctuary",
+  
   "item.saxophone.deific_warrant": "Deific Warrant",
   "item.saxophone.deific_warrant.desc": "A formal granting of protection by §kAvarice",
+  
   "item.saxophone.deitys_handbell": "Deity's Handbell",
   "item.saxophone.deitys_handbell.desc": "A calling card for something higher.",
+  
   "item.saxophone.denouement": "Denouement",
+  "tooltip.saxophone.denouement_1": "A goddess's final stand.",
+  "tooltip.saxophone.denouement_2": "One for all.",
+  
   "item.saxophone.emptiness": "Emptiness",
-  "item.saxophone.forsaken_charter": "Forsaken Charter",
-  "item.saxophone.liberation": "Liberation",
-  "item.saxophone.martyrdom": "Martyrdom",
-  "item.saxophone.salvation": "Salvation",
-  "item.saxophone.salvation.desc": "A tool used to save us from what's coming.",
-  "item.saxophone.wrath_of_twilight": "Wrath of Twilight",
-  "itemgroup.saxophone": "Saxophone Debug Item Group",
   "lore.emptiness_1": "A weapon wielded by a fractured remnant",
   "lore.emptiness_2": "of a friend",
   "lore.emptiness_3": "Class not found! (GIVE IN)",
-  "playername.saxo": "Avarice",
-  "saxophone.midnightconfig.monolithTicks": "Countdown for Covetous Monolith (Seconds)",
-  "saxophone.midnightconfig.title": "Saxophone",
-  "text.effect_name.offering": "Indefinite",
+  
+  "item.saxophone.forsaken_charter": "Forsaken Charter",
   "tooltip.saxophone.charter_1": "A powerful claim over an area",
   "tooltip.saxophone.charter_2": "enforced by higher powers.",
-  "tooltip.saxophone.denouement_1": "A goddess's final stand.",
-  "tooltip.saxophone.denouement_2": "One for all.",
+  
+  "item.saxophone.liberation": "Liberation",
   "tooltip.saxophone.liberation.tooltip": "Owned by the Contractor.",
+  
+  "item.saxophone.martyrdom": "Martyrdom",
   "tooltip.saxophone.martyr_1": "An ancient weapon once wielded",
   "tooltip.saxophone.martyr_2": "by a powerful conquerer.",
-  "tooltip.saxophone.monolith_1": "A forsaken artifact created as the mercy of a god,",
-  "tooltip.saxophone.monolith_2": "and a gift for those unwilling to go further.",
-  "tooltip.saxophone.monolith_3": "You know what you've done.",
-  "tooltip.saxophone.obituary.authority_1": "An artifact which contains immense mystical power",
-  "tooltip.saxophone.obituary.authority_2": "used to deliver the judgement of §kAvarice",
-  "text.unraveled.chat": "ERROR",
-  "effect.saxophone.unraveling": "Unraveling",
-  "text.effect_name.unraveling": "Class not found: UNRAVELING_DURATION"
+  
+  "item.saxophone.salvation": "Salvation",
+  "item.saxophone.salvation.desc": "A tool used to save us from what's coming.",
+
+  "itemgroup.saxophone": "Saxophone",
+  
+  "saxophone.midnightconfig.title": "Saxophone",
+  "saxophone.midnightconfig.monolithTicks": "Countdown for Covetous Monolith (Seconds)",
 }
