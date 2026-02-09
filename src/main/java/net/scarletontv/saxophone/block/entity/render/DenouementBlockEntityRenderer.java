@@ -10,10 +10,9 @@ import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.entity.DenouementBlockEntity;
 
 public class DenouementBlockEntityRenderer implements BlockEntityRenderer<DenouementBlockEntity> {
-    @Override
+    
     public void render(DenouementBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         matrices.push();
-
         matrices.translate(-entity.getPos().getX(), -entity.getPos().getY(), -entity.getPos().getZ());
 
         RenderUtils.renderCone(

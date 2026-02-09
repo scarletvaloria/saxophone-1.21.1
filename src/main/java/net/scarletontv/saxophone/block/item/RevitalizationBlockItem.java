@@ -6,22 +6,11 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 
 public class RevitalizationBlockItem extends BlockItem implements ColorableItem {
+    public int startColor(ItemStack itemStack) {return 0xFF2cfcf3;}
+    public int endColor(ItemStack itemStack) {return 0xFF1b8d89;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF00f1c1c;}
+
     public RevitalizationBlockItem(Block block, Settings settings) {
         super(block, settings);
-    }
-
-    @Override
-    public int startColor(ItemStack itemStack) {
-        return 0xFF2cfcf3;
-    }
-
-    @Override
-    public int endColor(ItemStack itemStack) {
-        return 0xFF1b8d89;
-    }
-
-    @Override
-    public int backgroundColor(ItemStack itemStack) {
-        return 0xF00f1c1c;
     }
 }

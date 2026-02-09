@@ -10,11 +10,11 @@ import net.scarletontv.saxophone.Saxophone;
 import net.scarletontv.saxophone.block.entity.CovetousMonolithBlockEntity;
 
 public class CovetousMonolithBlockEntityRenderer implements BlockEntityRenderer<CovetousMonolithBlockEntity> {
-    @Override
+
     public void render(CovetousMonolithBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         matrices.push();
-
         matrices.translate(-entity.getPos().getX(), -entity.getPos().getY(), -entity.getPos().getZ());
+
         RenderUtils.renderSkyBeam(
                 matrices,
                 vertexConsumers.getBuffer(RenderLayer.getEntitySolid(
@@ -27,6 +27,5 @@ public class CovetousMonolithBlockEntityRenderer implements BlockEntityRenderer<
                 1
         );
         matrices.pop();
-
     }
 }
